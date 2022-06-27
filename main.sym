@@ -1,0 +1,125 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     i
+021-02A A
+02B-02C @sprintf_string
+02D     MAIN.key
+02E     MAIN.result
+02F     lcd_init.i
+02F     quet_phim.x
+02F     LCD_SendCommand.command
+02F     MAIN.@SCRATCH1
+030-033 lcd_init.LCD_INIT_STRING
+030     quet_phim.@SCRATCH1
+030     @PSTRINGC7_724.@SCRATCH1
+030     LCD_SendCommand.@SCRATCH1
+031     LCD_Send4Bit.data
+031     quet_phim.@SCRATCH2
+031     @PSTRINGC7_724.@SCRATCH2
+032     @PSTRINGC7_724.@SCRATCH3
+033     lcd_putc.c
+033     @PSTRINGC7_724.@SCRATCH4
+034     @delay_ms1.P1
+034     lcd_gotoxy.x
+034     lcd_init.@SCRATCH1
+035     lcd_gotoxy.y
+036     lcd_gotoxy.address
+037     lcd_gotoxy.@SCRATCH1
+038     lcd_send_byte.address
+039     lcd_send_byte.n
+03A     lcd_read_byte.low
+03A     lcd_send_byte.@SCRATCH1
+03B     lcd_read_byte.high
+03B     lcd_send_nibble.n
+03C     lcd_read_nibble.n
+03C     lcd_read_byte.@SCRATCH1
+03D     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const741.call
+000005  @const746.call
+000006  @const747.call
+000007  @const748.call
+000008  @const749.call
+000009  @const750.call
+00000A  @const751.call
+00000B  @const752.call
+00000C  @const753.call
+00000D  @const754.call
+00000E  @const755.call
+00000F  @const756.call
+000010  @const767.call
+000014  @const770.call
+000017  @const771.call
+00001A  @delay_ms1
+00002E  lcd_send_nibble
+00005C  lcd_read_nibble
+00008D  lcd_send_byte
+000095  lcd_read_byte
+0000EB  lcd_init
+000131  lcd_gotoxy
+000143  lcd_putc
+00016F  @PSTRINGC7_724
+0001C5  quet_phim
+00038F  checkpass
+0003BF  LCD_Send4Bit
+0003F1  LCD_Enable
+000400  LCD_Clear
+000402  LCD_SendCommand
+000416  MAIN
+000416  @cinit1
+000423  @cinit2
+
+Project Directory:
+    D:\DataStorage\PIC\Project2_Code\
+
+Project Files:
+    main.c                                                  [27-Jun-22 10:52  CRC=98260A03]
+    main.h                                                  [26-Jun-22 14:31  CRC=00000000]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [21-Jan-21 11:32  CRC=DB498A92]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [22-Feb-16 09:05  CRC=D1A6378A]
+    keypad.c                                                [27-Jun-22 10:40  CRC=E8204D05]
+
+Source signature=15566629
+Program memory checksum=0000
+Hex file CRC=5101
+
+Units:
+    D:\DataStorage\PIC\Project2_Code\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

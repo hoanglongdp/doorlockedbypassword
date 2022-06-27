@@ -1,0 +1,89 @@
+void key_init(void) {
+   output_drive(COL1);  //Set output
+   output_drive(COL2);
+   output_drive(COL3);
+   output_float(ROW1);  //Set input
+   output_float(ROW2);
+   output_float(ROW3);
+   output_float(ROW4);
+}
+
+unsigned char quet_phim(void) {
+   output_b(0b11111101);   //Quet col1
+
+   if (!input(ROW1)) {
+      delay_ms(250);
+      while(!input(ROW1));
+      return '1';
+   }
+
+   if (!input(ROW2)) {
+      delay_ms(250);
+      while(!input(ROW2));
+      return '4';
+   }
+
+   if (!input(ROW3)) {
+      delay_ms(250);
+      while(!input(ROW3));
+      return '7';
+   }
+
+   if (!input(ROW4)) {
+      delay_ms(250);
+      while(!input(ROW4));
+      return '*';
+   }
+
+   output_b(0b11111011);   //Quet col2
+
+   if (!input(ROW1)) {
+      delay_ms(250);
+      while(!input(ROW1));
+      return '2';
+   }
+
+   if (!input(ROW2)) {
+      delay_ms(250);
+      while(!input(ROW2));
+      return '5';
+   }
+
+   if (!input(ROW3)) {
+      delay_ms(250);
+      while(!input(ROW3));
+      return '8';
+   }
+
+   if (!input(ROW4)) {
+      delay_ms(250);
+      while(!input(ROW4));
+      return '0';
+   }
+
+   output_b(0b11110111);   //Quet col3
+
+   if (!input(ROW1)) {
+      delay_ms(250);
+      while(!input(ROW1));
+      return '3';
+   }
+
+   if (!input(ROW2)) {
+      delay_ms(250);
+      while(!input(ROW2));
+      return '6';
+   }
+
+   if (!input(ROW3)) {
+      delay_ms(250);
+      while(!input(ROW3));
+      return '9';
+   }
+
+   if (!input(ROW4)) {
+      delay_ms(250);
+      while(!input(ROW4));
+      return '#';
+   }
+}

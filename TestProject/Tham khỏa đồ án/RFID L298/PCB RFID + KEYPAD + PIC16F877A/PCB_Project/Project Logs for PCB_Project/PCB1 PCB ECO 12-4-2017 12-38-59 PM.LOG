@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=RST' Pin=U1-8
+Removed Pin From Net: NetName=CS Pin=U1-10
+Added Pin To Net: NetName=CS Pin=U1-8
+Added Pin To Net: NetName=RST' Pin=U1-10
+Added Member To Class: ClassName=Sheet1 Member=Component ASM1117 
+Added Member To Class: ClassName=Sheet1 Member=Component C1 22p
+Added Member To Class: ClassName=Sheet1 Member=Component C2 22p
+Added Member To Class: ClassName=Sheet1 Member=Component C3 0.1uF
+Added Member To Class: ClassName=Sheet1 Member=Component C4 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C5 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C6 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component C7 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component JDC Jac DC
+Added Member To Class: ClassName=Sheet1 Member=Component Keypad JP8
+Added Member To Class: ClassName=Sheet1 Member=Component LCD1 LCD16x2A
+Added Member To Class: ClassName=Sheet1 Member=Component LED? LED
+Added Member To Class: ClassName=Sheet1 Member=Component R1 Res
+Added Member To Class: ClassName=Sheet1 Member=Component R2 Res
+Added Member To Class: ClassName=Sheet1 Member=Component RFID JP8
+Added Member To Class: ClassName=Sheet1 Member=Component SW 
+Added Member To Class: ClassName=Sheet1 Member=Component 
+Added Member To Class: ClassName=Sheet1 Member=Component U1 PIC16F887-I/P
+Added Member To Class: ClassName=Sheet1 Member=Component X 
+Added Room: Name=Sheet1

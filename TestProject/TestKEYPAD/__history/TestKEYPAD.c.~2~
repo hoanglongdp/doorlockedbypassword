@@ -1,0 +1,161 @@
+#include <TestKEYPAD.h>
+char A[12];
+int i=0;
+#define COL1 pin_B1
+#define COL2 pin_B2
+#define COL3 pin_B3
+#define ROW1 pin_B4
+#define ROW2 pin_B5
+#define ROW3 pin_B6
+#define ROW4 pin_B7
+void quet_phim()    //tra ve gia tri nut
+{
+   output_b(0b11111101);
+   if(!input(ROW1))         //nut 1
+   {
+      delay_ms(5);
+      while(!input(ROW1))
+      {
+         i++;
+         A[i]= 1;
+         lcd_putc("1");
+         while(!input(ROW1))  {};
+
+      }
+      
+   }
+   if(!input(ROW2))         //nut 4
+   {
+      delay_ms(5);
+      while(!input(ROW2))
+      {
+         i++;
+         A[i]= 4;
+         lcd_putc("4");
+         while(!input(ROW2))  {};
+      }
+      
+   }
+   if(!input(ROW3))         //nut 7
+   {
+      delay_ms(5);
+      while(!input(ROW3))
+      {
+         A[i]= 7;
+         lcd_putc("7");
+         while(!input(ROW3))  {};
+      }
+   }
+   if(!input(ROW4))         //nut *
+   {
+      delay_ms(5);
+      while(!input(ROW4))
+      {
+         i++;
+         A[i]= '*';
+         while(!input(ROW4))  {};
+      }
+   }
+   output_b(0b11111011);
+   if(!input(ROW1))         //nut 2
+   {
+      delay_ms(5);
+      while(!input(ROW1))
+      {
+         i++;
+         A[i]= 2;
+         lcd_putc("2");
+         while(!input(ROW1))  {};
+      }
+   }
+   if(!input(ROW2))         //nut 5
+   {
+      delay_ms(5);
+      while(!input(ROW2))
+      {
+         i++;
+         A[i]= 5;
+         lcd_putc("5");
+         while(!input(ROW2))  {};
+      }
+   }
+   if(!input(ROW3))         //nut 8
+   {
+      delay_ms(5);
+      while(!input(ROW3))
+      {
+         i++;
+         A[i]= 8;
+         lcd_putc("8");
+         while(!input(ROW3))  {};
+      }
+   }
+   if(!input(ROW4))         //nut 0
+   {
+      delay_ms(5);
+      while(!input(ROW4))
+      {
+         i++;
+         A[i]= 0;
+         lcd_putc("0");
+         while(!input(ROW4))  {};
+      }
+   }
+   output_b(0b11110111);
+   if(!input(ROW1))         //nut 3
+   {
+      delay_ms(5);
+      while(!input(ROW1))
+      {
+         i++;
+         A[i]= 3;
+         lcd_putc("3");
+         while(!input(ROW1))  {};
+      }
+   }
+   if(!input(ROW2))         //nut 6
+   {
+      delay_ms(5);
+      while(!input(ROW2))
+      {
+         i++;
+         A[i]= 6;
+         lcd_putc("6");
+         while(!input(ROW2))  {};
+      }
+   }
+   if(!input(ROW3))         //nut 9
+   {
+      delay_ms(5);
+      while(!input(ROW3))
+      {
+         i++;
+         A[i]= 9;
+         lcd_putc("9");
+         while(!input(ROW3))  {};
+      }
+   }
+   if(!input(ROW4))         //nut #
+   {
+      delay_ms(5);
+      while(!input(ROW4))
+      {
+         i++;
+         A[i]= '#';
+         while(!input(ROW4))  {};
+      }
+   }
+   
+}
+void main()
+{
+
+   while(TRUE)
+   {
+      quet_phim();
+      if(A[i]==1) output_high(pin_d0);
+
+      //TODO: User Code
+   }
+
+}

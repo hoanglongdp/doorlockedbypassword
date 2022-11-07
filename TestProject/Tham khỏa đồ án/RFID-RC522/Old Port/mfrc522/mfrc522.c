@@ -1,0 +1,504 @@
+
+#include "mfrc522.h"
+#define MAXRLEN    18
+
+
+                                    
+uint8_t MFRC522_Request(uint8_t req_code,uint8_t *pTagType)
+{
+   uint8_t status = MI_ERR;
+   uint16_t Length;
+   uint8_t Buffer[MAXRLEN];
+   ClearBitMask (STATUS2_REGISTER, 0x08) ;
+   MFRC522_WriteRegister (BIT_FRAMING_REGISTER, 0x07) ;
+   SetBitMask (TX_CONTROL_REGISTER, 0x03) ;
+   
+   
+   Buffer[0] = req_code;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 1, Buffer,&Length);
+
+   IF ((status == MI_OK) && (Length == 0x10))
+   {
+      * pTagType = Buffer[0];
+      * (pTagType + 1) = Buffer[1];
+   }
+
+   ELSE
+   {
+      status = MI_ERR;
+   }
+
+   RETURN status;
+}
+
+
+uint8_t MFRC522_Anticoll(uint8_t *pSnr)
+{
+   uint8_t status;
+   uint8_t i, snr_check = 0;
+   uint16_t Length;
+   uint8_t Buffer[MAXRLEN];
+   
+   ClearBitMask (STATUS2_REGISTER, 0x08) ;
+   MFRC522_WriteRegister (BIT_FRAMING_REGISTER, 0x00) ;
+   ClearBitMask (COLLISION_REGISTER, 0x80) ;
+   Buffer[0] = PICC_ANTICOLL1;
+   Buffer[1] = 0x20;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 2, Buffer,&Length);
+
+   IF (status == MI_OK)
+   {
+      FOR (i = 0; i < 4; i++)
+      {
+         * (pSnr + i) = Buffer[i];
+         snr_check ^= Buffer[i];
+      }
+
+      IF (snr_check != Buffer[i])
+      { status = MI_ERR; }
+   }
+
+   
+   SetBitMask (COLLISION_REGISTER, 0x80) ;
+   RETURN status;
+}
+
+
+uint8_t MFRC522_Select(uint8_t *pSnr)
+{
+   uint8_t status;
+   uint8_t i;
+   uint16_t Length;
+   uint8_t Buffer[MAXRLEN];
+   
+   Buffer[0] = PICC_ANTICOLL1;
+   Buffer[1] = 0x70;
+   Buffer[6] = 0;
+   FOR (i = 0; i < 4; i++)
+   {
+      Buffer[i + 2] = * (pSnr + i);
+      Buffer[6] ^= *(pSnr + i) ;
+   }
+
+   CalulateCRC (Buffer, 7,&Buffer[7]) ;
+   
+   ClearBitMask (STATUS2_REGISTER, 0x08) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 9, Buffer,&Length);
+   
+   IF ((status == MI_OK) && (Length == 0x18))
+   { status = MI_OK; }
+   ELSE
+   { status = MI_ERR; }
+   RETURN status;
+}
+
+ 
+uint8_t MFRC522_AuthState(uint8_t auth_mode,uint8_t addr,uint8_t *pKey,uint8_t *pSnr)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t i, Buffer[MAXRLEN];
+   Buffer[0] = auth_mode;
+   Buffer[1] = addr;
+   FOR (i = 0; i < 6; i++)
+   {
+      Buffer[i + 2] = * (pKey + i);
+   }
+
+   FOR (i = 0; i < 4; i++)
+   { Buffer[i + 8] = * (pSnr + i); }
+   status = MFRC522_ComMF522 (MFRC522_AUTHENT, Buffer, 12, Buffer,&Length);
+
+   if ((status != MI_OK) || (! (MFRC522_ReadRegister (STATUS2_REGISTER)&0x08)))
+   { status = MI_ERR; }
+   
+   RETURN status;
+}
+
+
+uint8_t MFRC522_Read(uint8_t addr,uint8_t *pData)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t i, Buffer[MAXRLEN];
+   Buffer[0] = PICC_READ;
+   Buffer[1] = addr;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+   IF ((status == MI_OK) && (Length == 0x90))
+   {
+      FOR (i = 0; i < 16; i++)
+      { * (pData + i) = Buffer[i]; }
+   }
+
+   ELSE
+   { status = MI_ERR; }
+   
+   RETURN status;
+}
+
+uint8_t MFRC522_Write(uint8_t addr,uint8_t *pData)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t i, Buffer[MAXRLEN];
+   
+   Buffer[0] = PICC_WRITE;
+   Buffer[1] = addr;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+   IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+   { status = MI_ERR; }
+   
+   IF (status == MI_OK)
+   {
+      FOR (i = 0; i < 16; i++)
+      { Buffer[i] = * (pData + i) ; }
+      CalulateCRC (Buffer, 16,&Buffer[16]) ;
+      status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 18, Buffer,&Length);
+
+      IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+      { status = MI_ERR; }
+   }
+
+   
+   RETURN status;
+}
+
+uint8_t MFRC522_Value(uint8_t dd_mode,uint8_t addr,uint8_t *pValue)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t i, Buffer[MAXRLEN];
+   
+   Buffer[0] = dd_mode;
+   Buffer[1] = addr;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+   IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+   { status = MI_ERR; }
+   
+   IF (status == MI_OK)
+   {
+      FOR (i = 0; i < 16; i++)
+      { Buffer[i] = * (pValue + i) ; }
+      CalulateCRC (Buffer, 4,&Buffer[4]) ;
+      Length = 0;
+      status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 6, Buffer,&Length);
+
+      IF (status != MI_ERR)
+      { status = MI_OK; }
+   }
+
+   
+   IF (status == MI_OK)
+   {
+      Buffer[0] = PICC_TRANSFER;
+      Buffer[1] = addr;
+      CalulateCRC (Buffer, 2,&Buffer[2]);
+      
+      status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+      IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+      { status = MI_ERR; }
+   }
+
+   RETURN status;
+}
+
+uint8_t MFRC522_BakValue(uint8_t sourceaddr, uint8_t goaladdr)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t Buffer[MAXRLEN];
+   Buffer[0] = PICC_RESTORE;
+   Buffer[1] = sourceaddr;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+   IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+   { status = MI_ERR; }
+   
+   IF (status == MI_OK)
+   {
+      Buffer[0] = 0;
+      Buffer[1] = 0;
+      Buffer[2] = 0;
+      Buffer[3] = 0;
+      CalulateCRC (Buffer, 4,&Buffer[4]) ;
+      status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 6, Buffer,&Length);
+
+      IF (status != MI_ERR)
+      { status = MI_OK; }
+   }
+
+   
+   IF (status != MI_OK)
+   { RETURN MI_ERR; }
+   
+   Buffer[0] = PICC_TRANSFER;
+   Buffer[1] = goaladdr;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+
+   IF ((status != MI_OK) || (Length != 4) || ((Buffer[0]&0x0F) != 0x0A) )
+   { status = MI_ERR; }
+   RETURN status;
+}
+
+uint8_t MFRC522_Halt(VOID)
+{
+   uint8_t status;
+   uint16_t Length;
+   uint8_t Buffer[MAXRLEN];
+   Buffer[0] = PICC_HALT;
+   Buffer[1] = 0;
+   CalulateCRC (Buffer, 2,&Buffer[2]) ;
+   status = MFRC522_ComMF522 (MFRC522_TRANSCEIVE, Buffer, 4, Buffer,&Length);
+   RETURN MI_OK;
+}
+
+void CalulateCRC(uint8_t *pIndata,uint8_t len,uint8_t *pOutData)
+{
+   uint8_t i, n;
+   ClearBitMask (DIV_IRQ_REGISTER, 0x04) ;
+   MFRC522_WriteRegister (COMMAND_REGISTER, MFRC522_IDLE) ;
+   SetBitMask (FIFO_LEVEL_REGISTER, 0x80) ;
+   FOR (i = 0; i < len; i++)
+   { MFRC522_WriteRegister (FIFO_DATA_REGISTER, * (pIndata + i)); }
+   MFRC522_WriteRegister (COMMAND_REGISTER, MFRC522_CALCCRC);
+   i = 0xFF;
+
+   DO
+   {
+      n = MFRC522_ReadRegister (DIV_IRQ_REGISTER);
+      i--;
+   }
+
+   WHILE ((i != 0)&& ! (n&0x04));
+   pOutData[0] = MFRC522_ReadRegister (CRC_RESULT_L_REGISTER);
+   pOutData[1] = MFRC522_ReadRegister (CRC_RESULT_M_REGISTER);
+}
+
+uint8_t MFRC522_Reset(VOID)
+{
+   output_bit (MF522_RST, 1) ;
+   delay_us (1);
+   output_bit (MF522_RST, 0) ;
+   delay_us (1);
+   output_bit (MF522_RST, 1) ;
+   delay_us (1);
+   MFRC522_WriteRegister (COMMAND_REGISTER, MFRC522_RESETPHASE) ;
+   delay_us (1);
+   
+   MFRC522_WriteRegister (MODE_REGISTER, 0x3D);
+   MFRC522_WriteRegister (TIMER_RELOAD_L_REGISTER, 30);
+   MFRC522_WriteRegister (TIMER_RELOAD_H_REGISTER, 0) ;
+   MFRC522_WriteRegister (TMODE_REGISTER, 0x8D) ;
+   MFRC522_WriteRegister (TIMER_PRESCALER_REGISTER, 0x3E) ;
+   MFRC522_WriteRegister (TX_ASK_REGISTER, 0x40) ;
+   
+   RETURN MI_OK;
+}
+
+uint8_t MFRC522_ReadRegister(uint8_t Address)
+{
+   uint8_t i, ucAddr;
+   uint8_t ucResult = 0;
+   output_bit (MF522_SCK, 0);
+   output_bit (MF522_NSS, 0);
+   ucAddr = ( (Address<<1)&0x7E)|0x80;
+   //Write spi
+   FOR (i = 8; i > 0; i--)
+   {
+      output_bit (MF522_SI, ((ucAddr&0x80) == 0x80));
+      output_bit (MF522_SCK, 1);
+      ucAddr <<= 1;
+      output_bit (MF522_SCK, 0);
+   }
+//SPI read
+   FOR (i = 8; i > 0; i--)
+   {
+      output_bit (MF522_SCK, 1);
+      ucResult <<= 1;
+      ucResult|= (INT1) input (MF522_SO);
+      output_bit (MF522_SCK, 0);
+   }
+
+   
+   output_bit (MF522_NSS, 1);
+   output_bit (MF522_SCK, 1);
+   RETURN ucResult;
+}
+
+void MFRC522_WriteRegister(uint8_t Address, uint8_t value)
+{
+   
+   uint8_t i, ucAddr;
+   output_bit (MF522_SCK, 0);
+   output_bit (MF522_NSS, 0);
+   ucAddr = ( (Address<<1)&0x7E);
+   FOR (i = 8; i > 0; i--)
+   {
+      output_bit (MF522_SI, ( (ucAddr&0x80) == 0x80));
+      output_bit (MF522_SCK, 1);
+      ucAddr <<= 1;
+      output_bit (MF522_SCK, 0);
+   }
+
+   
+   FOR (i = 8; i > 0; i--)
+   {
+      output_bit (MF522_SI, ( (value&0x80) == 0x80));
+      output_bit (MF522_SCK, 1);
+      value <<= 1;
+      output_bit (MF522_SCK, 0);
+   }
+
+   output_bit (MF522_NSS, 1);
+   output_bit (MF522_SCK, 1);
+}
+
+void SetBitMask(uint8_t reg,uint8_t mask)  
+{
+   uint8_t tmp = 0x0;
+   tmp = MFRC522_ReadRegister (reg);
+   MFRC522_WriteRegister (reg, tmp|mask); // set bit mask
+}
+
+void ClearBitMask(uint8_t reg,uint8_t mask)  
+{
+   uint8_t tmp = 0x0;
+   tmp = MFRC522_ReadRegister (reg);
+   MFRC522_WriteRegister (reg, tmp&~mask); // clear bit mask
+}
+
+uint8_t MFRC522_ComMF522(uint8_t  Command, 
+                         uint8_t * pInData, 
+                         uint8_t InLenByte,
+                         uint8_t * pOutData, 
+                         uint16_t * pOutLenBit)
+{
+                            uint8_t status = MI_ERR;
+                            uint8_t irqEn = 0x00;
+                            uint8_t waitFor = 0x00;
+                            uint8_t lastBits;
+                            uint8_t n;
+                            uint16_t i;
+
+                            SWITCH (Command)
+                            {
+                               CASE MFRC522_AUTHENT:
+                               irqEn = 0x12;
+                               waitFor = 0x10;
+                               BREAK;
+
+                               CASE MFRC522_TRANSCEIVE:
+                               irqEn = 0x77;
+                               waitFor = 0x30;
+                               BREAK;
+
+                               DEFAULT:
+                               BREAK;
+                            }
+
+                            
+                            MFRC522_WriteRegister (IE_REGISTER, irqEn|0x80) ;
+                            ClearBitMask (IRQ_REGISTER, 0x80) ;
+                            MFRC522_WriteRegister (COMMAND_REGISTER, MFRC522_IDLE) ;
+                            SetBitMask (FIFO_LEVEL_REGISTER, 0x80) ;
+                            
+                            FOR (i = 0; i < InLenByte; i++)
+                            {
+                               MFRC522_WriteRegister (FIFO_DATA_REGISTER, pInData[i]);
+                            }
+
+                            MFRC522_WriteRegister (COMMAND_REGISTER, Command);
+
+                            IF (Command == MFRC522_TRANSCEIVE)
+                            { SetBitMask (BIT_FRAMING_REGISTER, 0x80); }
+                            
+                            i = 600; //25ms
+                            DO
+                            {
+                               n = MFRC522_ReadRegister (IRQ_REGISTER);
+                               i--;
+                            }
+
+                            WHILE ((i != 0)&& ! (n&0x01) && ! (n&waitFor));
+                            ClearBitMask (BIT_FRAMING_REGISTER, 0x80) ;
+                            
+                            IF (i != 0)
+                            {
+                               if ( ! (MFRC522_ReadRegister (ERROR_REGISTER)&0x1B))
+                               {
+                                  status = MI_OK;
+
+                                  IF (n&irqEn&0x01)
+                                  {
+                                     status = MI_NOTAGERR;
+                                  }
+
+                                  IF (Command == MFRC522_TRANSCEIVE)
+                                  {
+                                     n = MFRC522_ReadRegister (FIFO_LEVEL_REGISTER);
+                                     lastBits = MFRC522_ReadRegister (CONTROL_REGISTER)&0x07;
+
+                                     IF (lastBits)
+                                     {
+                                        * pOutLenBit = (n - 1) * 8 + lastBits;
+                                     }
+
+                                     ELSE
+                                     {
+                                        * pOutLenBit = n*8;
+                                     }
+
+                                     IF (n == 0)
+                                     {
+                                        n = 1;
+                                     }
+
+                                     IF (n > MAXRLEN)
+                                     {
+                                        n = MAXRLEN;
+                                     }
+
+                                     FOR (i = 0; i < n; i++)
+                                     {
+                                        pOutData[i] = MFRC522_ReadRegister (FIFO_DATA_REGISTER);
+                                     }
+                                  }
+                               }
+
+                               ELSE
+                               {
+                                  status = MI_ERR;
+                               }
+                            }
+
+                            SetBitMask (CONTROL_REGISTER, 0x80); // stop timer now
+                            MFRC522_WriteRegister (COMMAND_REGISTER, MFRC522_IDLE);
+                            RETURN status;
+}
+
+void MFRC522_AntennaOn ()
+                         {
+                            uint8_t i;
+                            i = MFRC522_ReadRegister (TX_CONTROL_REGISTER);
+
+                            IF (! (i&0x03))
+                            {
+                               SetBitMask (TX_CONTROL_REGISTER, 0x03);
+                            }
+                         }
+
+                         VOID MFRC522_AntennaOff ()
+                         {
+                            ClearBitMask (TX_CONTROL_REGISTER, 0x03);
+                         }
+

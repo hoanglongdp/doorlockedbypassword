@@ -1,0 +1,91 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=main.c
+[main.c]
+Type=4
+[mru-list]
+1=main.c
+
+[Opened Files]
+1=main.c
+2=Built_in.h
+3=
+4=
+
+[ProjectLog]
+Days=3
+D1=03-10-2014
+D1_L=24
+D1_L1=[63019]Stopped Editing.
+D1_L2=[65565]Started Editing.
+D1_L3=[65931]Stopped Editing.
+TotalEdit=306
+TotalDebug=0
+D1_E=77
+D1_D=0
+D1_L4=[65931]Project Closed.
+D1_L5=[65942]Project Opened.
+D1_L6=[65994]Started Editing.
+D1_L7=[66085]Stopped Editing.
+D1_L8=[66085]Project Closed.
+D1_L9=[81430]Project Opened.
+D1_L10=[81461]Started Editing.
+D1_L11=[81935]Stopped Editing.
+D1_L12=[82035]Started Editing.
+D1_L13=[82224]Stopped Editing.
+D1_L14=[82224]Project Closed.
+D1_L15=[82350]Project Opened.
+D1_L16=[82424]Started Editing.
+D1_L17=[82884]Stopped Editing.
+D1_L18=[82884]Project Closed.
+D1_L19=[83957]Project Opened.
+D1_L20=[83982]Started Editing.
+D1_L21=[84342]Stopped Editing.
+D1_L22=[84475]Started Editing.
+D1_L23=[85091]Stopped Editing.
+D1_L24=[85091]Project Closed.
+D2=04-10-2014
+D2_L=20
+D2_L1=[33300]Project Opened.
+D2_L2=[34308]Started Editing.
+D2_L3=[35104]Stopped Editing.
+D2_L4=[35352]Started Editing.
+D2_L5=[37151]Stopped Editing.
+D2_L6=[37270]Started Editing.
+D2_L7=[37640]Stopped Editing.
+D2_L8=[37878]Started Editing.
+D2_L9=[38663]Stopped Editing.
+D2_L10=[38963]Started Editing.
+D2_L11=[39517]Stopped Editing.
+D2_L12=[39585]Started Editing.
+D2_L13=[42639]Stopped Editing.
+D2_E=173
+D2_D=0
+D2_L14=[42840]Project Closed.
+D2_L15=[50971]Project Opened.
+D2_L16=[51012]Started Editing.
+D2_L17=[52221]Stopped Editing.
+D2_L18=[52499]Started Editing.
+D2_L19=[56636]Stopped Editing.
+D2_L20=[56642]Project Closed.
+D3=05-10-2014
+D3_L=10
+D3_L1=[39033]Project Opened.
+D3_L2=[39066]Started Editing.
+D3_L3=[39095]Stopped Editing.
+D3_E=56
+D3_D=0
+D3_L4=[39095]Project Closed.
+D3_L5=[39107]Project Opened.
+D3_L6=[39162]Started Editing.
+D3_L7=[40262]Stopped Editing.
+D3_L8=[40448]Started Editing.
+D3_L9=[43206]Stopped Editing.
+D3_L10=[44229]Project Closed.
+[Units]
+Count=1
+1=main (main)

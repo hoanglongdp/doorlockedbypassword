@@ -1,0 +1,141 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-025 RedData
+026-02B BlueData
+02C.0   red
+02C.1   blue
+02D-032 MAIN.UID
+033     MAIN.TagType
+034-035 get_blue.data
+034-035 get_red.data
+034-035 MFRC522_ReadCardSerial.str
+034-035 MFRC522_isCard.TagType
+034     MFRC522_AntennaOn.stt
+036     MFRC522_Request.reqMode
+036-037 get_red.UID
+036     MFRC522_ReadCardSerial._status
+036-037 get_blue.UID
+036     MFRC522_isCard.@SCRATCH1
+037-038 MFRC522_Request.TagType
+037-038 MFRC522_AntiColl.serNum
+037     MFRC522_ReadCardSerial.@SCRATCH1
+038     get_red.i
+038     get_blue.i
+038     MFRC522_ReadCardSerial.@SCRATCH2
+039     MFRC522_AntiColl._status
+039     MFRC522_Request._status
+039     get_red.@SCRATCH1
+039     get_blue.@SCRATCH1
+03A     MFRC522_AntiColl.i
+03A     MFRC522_Request.backBits
+03B     MFRC522_AntiColl.serNumCheck
+03B     MFRC522_Request.@SCRATCH1
+03C     MFRC522_AntiColl.unLen
+03C     MFRC522_Request.@SCRATCH2
+03D     MFRC522_ToCard.command
+03D     MFRC522_AntiColl.@SCRATCH1
+03E-03F MFRC522_ToCard.sendData
+03E     MFRC522_AntiColl.@SCRATCH2
+040     MFRC522_ToCard.sendLen
+041-042 MFRC522_ToCard.backData
+043-044 MFRC522_ToCard.backLen
+045     MFRC522_ToCard._status
+046     MFRC522_ToCard.irqEn
+047     MFRC522_ToCard.waitIRq
+048     MFRC522_ToCard.lastBits
+049     MFRC522_ToCard.n
+04A     MFRC522_ToCard.i
+04B     MFRC522_Clear_Bit.addr
+04B     MFRC522_Set_Bit.addr
+04B     MFRC522_ToCard.@SCRATCH1
+04C     MFRC522_Set_Bit.mask
+04C     MFRC522_Clear_Bit.mask
+04C     MFRC522_ToCard.@SCRATCH2
+04D     MFRC522_Clear_Bit.tmp
+04D     MFRC522_Set_Bit.tmp
+04D     MFRC522_ToCard.@SCRATCH3
+04E     MFRC522_Rd.address
+04E     MFRC522_Clear_Bit.@SCRATCH1
+04E     MFRC522_Set_Bit.@SCRATCH1
+04F     MFRC522_Wr.address
+04F     MFRC522_Rd.i
+050     MFRC522_Rd.ucAddr
+050     MFRC522_Wr.value
+051     MFRC522_Rd.ucResult
+051     MFRC522_Wr.i
+052     MFRC522_Wr.ucAddr
+052     MFRC522_Rd.@SCRATCH1
+053     MFRC522_Wr.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  MFRC522_Wr
+000051  MFRC522_Rd
+00009E  MFRC522_Clear_Bit
+0000AE  MFRC522_Set_Bit
+0000BD  MFRC522_Init
+0000C4  MFRC522_Reset
+0000FF  MFRC522_AntennaOff
+000104  MFRC522_AntennaOn
+000111  MFRC522_ToCard
+0001EB  MFRC522_isCard
+0001F1  MFRC522_Request
+000226  MFRC522_ReadCardSerial
+00022A  MFRC522_AntiColl
+000289  get_red
+0002AD  get_blue
+0002D1  MAIN
+0002D1  @cinit1
+0002DD  @cinit2
+
+Project Directory:
+    D:\TestProject\TestRFID\
+
+Project Files:
+    TestRFID.c                                              [09-Apr-21 01:43  CRC=A8395151]
+    TestRFID.h                                              [04-Apr-21 23:50  CRC=00000000]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [20-Dec-19 15:23  CRC=F9E03FEF]
+    Built_in.h                                              [04-Oct-14 15:10  CRC=54A21C2B]
+
+Source signature=4B5DC996
+Program memory checksum=0000
+Hex file CRC=A2F4
+
+Units:
+    D:\TestProject\TestRFID\TestRFID (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   TestRFID.xsym
+    Errors:      TestRFID.err
+    Ext Symbols: TestRFID.esym
+    INHX8:       TestRFID.hex
+    Symbols:     TestRFID.sym
+    List:        TestRFID.lst
+    Debug/COFF:  TestRFID.cof
+    Project:     TestRFID.ccspjt
+    Call Tree:   TestRFID.tre
+    Statistics:  TestRFID.STA

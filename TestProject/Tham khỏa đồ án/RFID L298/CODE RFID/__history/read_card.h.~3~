@@ -1,0 +1,18 @@
+#define _read_card_h_
+#include <math.h>//chen thu vien toan
+#use delay(clock=20000000)
+
+unsigned int8 *card_id();
+
+unsigned int8 *card_id(){
+   int8 UID[5];
+   unsigned int TagType; 
+   if (MFRC522_isCard (&TagType)) //Check any card
+       {             
+        if(MFRC522_ReadCardSerial (&UID)) 
+        {
+            return UID;                    
+        }        
+         
+    }             
+}

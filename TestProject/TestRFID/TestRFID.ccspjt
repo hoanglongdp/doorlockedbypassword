@@ -1,0 +1,79 @@
+[PROJECT]
+Target=TestRFID.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.092
+Compiler=PCM
+CCSVersion=5.092
+[Target Data]
+FileList=TestRFID.c
+[Directories]
+Include=
+[D:\TestProject\TestRFID\TestRFID]
+Type=4
+[mru-list]
+1=TestRFID.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=6
+D1=04-04-2021
+D1_L=4
+D1_L1=[85820]Project Opened.
+D1_L2=[85849]Started Editing.
+D1_L3=[86149]Stopped Editing.
+D1_L4=[86179]Started Editing.
+D2=05-04-2021
+D2_L=2
+D2_L1=[680]Stopped Editing.
+TotalEdit=221
+TotalDebug=0
+D2_E=16
+D2_D=0
+D2_L2=[680]Project Closed.
+D3=07-04-2021
+D3_L=5
+D3_L1=[55790]Project Opened.
+D3_L2=[55839]Started Editing.
+D3_L3=[66919]Stopped Editing.
+D3_L4=[78746]Started Editing.
+D3_L5=[79065]Stopped Editing.
+D4=08-04-2021
+D4_E=180
+D4_D=0
+D4_L=1
+D4_L1=[2284]Project Closed.
+D5=09-04-2021
+D5_L=7
+D5_L1=[4122]Project Opened.
+D5_L2=[4155]Started Editing.
+D5_L3=[4762]Stopped Editing.
+D5_L4=[6207]Started Editing.
+D5_L5=[6509]Stopped Editing.
+D5_L6=[20885]Started Editing.
+D5_L7=[21541]Stopped Editing.
+D6=10-04-2021
+D6_L=3
+D6_L1=[48284]Started Editing.
+D6_L2=[49106]Stopped Editing.
+D6_E=25
+D6_D=0
+D6_L3=[49106]Project Closed.
+
+[Opened Files]
+1=..\..\PROJECT\main.c
+t1=87
+2=Built_in.h
+t2=1
+Count=2
+3=Built_in.h
+t3=1
+[TestRFID.c]
+Type=4
+
+[defines]
+buildcount=12
+[Units]
+Count=1
+1=TestRFID (main)

@@ -1,0 +1,4 @@
+>>> Warning 202 "main.c" Line 48(12,19): Variable never used:   TempStr
+      Memory usage:   ROM=33%      RAM=27% - 48%
+      0 Errors,  1 Warnings.
+Build Successful.

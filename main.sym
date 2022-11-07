@@ -1,5 +1,7 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
 004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     lcdlat
+008     lcd
 008     PSP_DATA
 015     CCP_1_LOW
 015     CCP_1
@@ -7,101 +9,201 @@
 01B     CCP_2_LOW
 01B     CCP_2
 01C     CCP_2_HIGH
-020     i
-021-02A A
-02B-02C @sprintf_string
-02D     MAIN.key
-02E     MAIN.result
-02F     lcd_init.i
-02F     quet_phim.x
-02F     LCD_SendCommand.command
-02F     MAIN.@SCRATCH1
-030-033 lcd_init.LCD_INIT_STRING
-030     quet_phim.@SCRATCH1
-030     @PSTRINGC7_724.@SCRATCH1
-030     LCD_SendCommand.@SCRATCH1
-031     LCD_Send4Bit.data
-031     quet_phim.@SCRATCH2
-031     @PSTRINGC7_724.@SCRATCH2
-032     @PSTRINGC7_724.@SCRATCH3
-033     lcd_putc.c
-033     @PSTRINGC7_724.@SCRATCH4
-034     @delay_ms1.P1
-034     lcd_gotoxy.x
-034     lcd_init.@SCRATCH1
-035     lcd_gotoxy.y
-036     lcd_gotoxy.address
-037     lcd_gotoxy.@SCRATCH1
-038     lcd_send_byte.address
-039     lcd_send_byte.n
-03A     lcd_read_byte.low
-03A     lcd_send_byte.@SCRATCH1
-03B     lcd_read_byte.high
-03B     lcd_send_nibble.n
-03C     lcd_read_nibble.n
-03C     lcd_read_byte.@SCRATCH1
-03D     lcd_read_nibble.@SCRATCH1
+020-02B A
+02C     i
+02D     j
+02E-033 THE
+034-039 MOC
+03A-03B @sprintf_string
+03C     @TRIS_C
+03D-042 MAIN.UID
+043     MAIN.TagType
+044     MFRC522_AntennaOn.stt
+044     lcd_init.i
+044-045 MFRC522_isCard.TagType
+044     LCD_SendCommand.command
+044-045 MFRC522_ReadCardSerial.str
+044-045 quet.data
+044     quet_phim.@SCRATCH1
+044     @PSTRINGC7_696.@SCRATCH1
+044     motor.@SCRATCH1
+044     MAIN.@SCRATCH1
+045-048 lcd_init.LCD_INIT_STRING
+045     LCD_SendCommand.@SCRATCH1
+045     quet_phim.@SCRATCH2
+045     @PSTRINGC7_696.@SCRATCH2
+045     motor.@SCRATCH2
+046     MFRC522_Request.reqMode
+046-047 quet.UID
+046     MFRC522_ReadCardSerial._status
+046     LCD_Send4Bit.data
+046     MFRC522_isCard.@SCRATCH1
+046     @PSTRINGC7_696.@SCRATCH3
+047     lcd_putc.c
+047-048 MFRC522_AntiColl.serNum
+047-048 MFRC522_Request.TagType
+047     MFRC522_ReadCardSerial.@SCRATCH1
+047     @PSTRINGC7_696.@SCRATCH4
+048     quet.i
+048     lcd_gotoxy.x
+048     MFRC522_ReadCardSerial.@SCRATCH2
+049     MFRC522_Request._status
+049     @delay_ms1.P1
+049     MFRC522_AntiColl._status
+049     lcd_gotoxy.y
+049     lcd_init.@SCRATCH1
+049     quet.@SCRATCH1
+04A     MFRC522_Request.backBits
+04A     MFRC522_AntiColl.i
+04A     lcd_gotoxy.address
+04B     MFRC522_AntiColl.serNumCheck
+04B     lcd_gotoxy.@SCRATCH1
+04B     MFRC522_Request.@SCRATCH1
+04C     MFRC522_AntiColl.unLen
+04C     lcd_send_byte.address
+04C     MFRC522_Request.@SCRATCH2
+04D     lcd_send_byte.n
+04D     MFRC522_ToCard.command
+04D     MFRC522_AntiColl.@SCRATCH1
+04E-04F MFRC522_ToCard.sendData
+04E     lcd_read_byte.low
+04E     lcd_send_byte.@SCRATCH1
+04E     MFRC522_AntiColl.@SCRATCH2
+04F     lcd_read_byte.high
+04F     lcd_send_nibble.n
+050     MFRC522_ToCard.sendLen
+050     lcd_read_byte.@SCRATCH1
+051-052 MFRC522_ToCard.backData
+053-054 MFRC522_ToCard.backLen
+055     MFRC522_ToCard._status
+056     MFRC522_ToCard.irqEn
+057     MFRC522_ToCard.waitIRq
+058     MFRC522_ToCard.lastBits
+059     MFRC522_ToCard.n
+05A     MFRC522_ToCard.i
+05B     MFRC522_Set_Bit.addr
+05B     MFRC522_Clear_Bit.addr
+05B     MFRC522_ToCard.@SCRATCH1
+05C     MFRC522_Set_Bit.mask
+05C     MFRC522_Clear_Bit.mask
+05C     MFRC522_ToCard.@SCRATCH2
+05D     MFRC522_Clear_Bit.tmp
+05D     MFRC522_Set_Bit.tmp
+05D     MFRC522_ToCard.@SCRATCH3
+05E     MFRC522_Rd.address
+05E     MFRC522_Clear_Bit.@SCRATCH1
+05E     MFRC522_Set_Bit.@SCRATCH1
+05F     MFRC522_Wr.address
+05F     MFRC522_Rd.i
+060     MFRC522_Wr.value
+060     MFRC522_Rd.ucAddr
+061     MFRC522_Rd.ucResult
+061     MFRC522_Wr.i
+062     MFRC522_Wr.ucAddr
+062     MFRC522_Rd.@SCRATCH1
+063     MFRC522_Wr.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
 079     @SCRATCH
 07A     @SCRATCH
+088     lcdtris
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @const741.call
-000005  @const746.call
-000006  @const747.call
-000007  @const748.call
-000008  @const749.call
-000009  @const750.call
-00000A  @const751.call
-00000B  @const752.call
-00000C  @const753.call
-00000D  @const754.call
-00000E  @const755.call
-00000F  @const756.call
-000010  @const767.call
-000014  @const770.call
-000017  @const771.call
-00001A  @delay_ms1
-00002E  lcd_send_nibble
-00005C  lcd_read_nibble
-00008D  lcd_send_byte
-000095  lcd_read_byte
-0000EB  lcd_init
-000131  lcd_gotoxy
-000143  lcd_putc
-00016F  @PSTRINGC7_724
-0001C5  quet_phim
-00038F  checkpass
-0003BF  LCD_Send4Bit
-0003F1  LCD_Enable
-000400  LCD_Clear
-000402  LCD_SendCommand
-000416  MAIN
-000416  @cinit1
-000423  @cinit2
+000004  @const821.call
+000005  @const826.call
+000006  @const827.call
+000007  @const828.call
+000008  @const829.call
+000009  @const830.call
+00000A  @const831.call
+00000B  @const832.call
+00000C  @const833.call
+00000D  @const834.call
+00000E  @const835.call
+00000F  @const836.call
+000010  @const837.call
+000011  @const838.call
+000012  @const839.call
+000013  @const840.call
+000014  @const841.call
+000015  @const842.call
+000016  @const843.call
+000017  @const844.call
+000018  @const852.call
+00001B  @const853.call
+000022  @const855.call
+000028  @const856.call
+00002E  @const857.call
+000034  @const858.call
+00003A  @const859.call
+000040  @const860.call
+000046  @const861.call
+00004C  @const862.call
+00004F  @const863.call
+000052  @const864.call
+000059  @const865.call
+00005F  @const866.call
+000065  @const867.call
+00006B  @const868.call
+000071  @const869.call
+000077  @const870.call
+00007D  @const871.call
+000083  @const872.call
+000086  @delay_ms1
+00009A  lcd_send_nibble
+0000A9  lcd_read_nibble
+0000AF  lcd_send_byte
+0000B5  lcd_read_byte
+0000F1  lcd_init
+00012F  MFRC522_Wr
+00017C  MFRC522_Rd
+0001C9  MFRC522_Clear_Bit
+0001D9  MFRC522_Set_Bit
+0001E8  MFRC522_Init
+0001EF  MFRC522_Reset
+00022A  MFRC522_AntennaOff
+00022F  MFRC522_AntennaOn
+00023C  lcd_gotoxy
+00024E  lcd_putc
+00027A  @PSTRINGC7_696
+0002D0  quet_phim
+00052E  motor
+0005A9  MFRC522_ToCard
+000683  MFRC522_isCard
+000689  MFRC522_Request
+0006BC  MFRC522_ReadCardSerial
+0006C0  MFRC522_AntiColl
+00071D  quet
+00073E  LCD_Send4Bit
+000770  LCD_Enable
+000782  LCD_Clear
+000784  LCD_SendCommand
+000800  MAIN
+000800  @cinit1
+000810  @cinit2
+09C1  reset
 
 Project Directory:
-    D:\DataStorage\PIC\Project2_Code\
+    D:\PROJECT\
 
 Project Files:
-    main.c                                                  [27-Jun-22 10:52  CRC=98260A03]
-    main.h                                                  [26-Jun-22 14:31  CRC=00000000]
-    C:\Program Files (x86)\PICC\Devices\16F877A.h           [21-Jan-21 11:32  CRC=DB498A92]
+    main.c                                                  [21-Apr-21 18:05  CRC=A0165346]
+    main.h                                                  [05-Mar-21 15:47  CRC=00000000]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [20-Dec-19 15:23  CRC=F9E03FEF]
     C:\Program Files (x86)\PICC\Drivers\lcd.c               [22-Feb-16 09:05  CRC=D1A6378A]
-    keypad.c                                                [27-Jun-22 10:40  CRC=E8204D05]
+    Built_in.h                                              [10-Apr-21 13:42  CRC=A348945F]
 
-Source signature=15566629
+Source signature=B22DF37D
 Program memory checksum=0000
-Hex file CRC=5101
+Hex file CRC=E5F8
 
 Units:
-    D:\DataStorage\PIC\Project2_Code\main (main)
+    D:\PROJECT\main (main)
 
 Compiler Settings:
     Processor:      PIC16F877A
@@ -110,7 +212,7 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:   CCS5
+    Compile Mode:       CCS5
 
 Output Files:
     XREF file:   main.xsym

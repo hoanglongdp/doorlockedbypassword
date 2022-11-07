@@ -1,0 +1,19 @@
+#include <TestPic.h>
+
+void main()
+{
+   set_tris_c(0x00);
+   set_tris_b(0x00);
+   set_tris_d(0x00);
+   
+   
+   while(TRUE)
+   {
+   output_c(0xff);
+   output_d(0xff);
+   output_b(0b01110111);
+
+      //TODO: User Code
+   }
+
+}

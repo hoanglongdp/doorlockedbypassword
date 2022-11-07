@@ -1,0 +1,141 @@
+
+ROM used:   4500/8192 (55%)
+            5623/8192 (69%) including unused fragments
+
+            1.0 Average locations per line
+            5.3 Average locations per statement
+
+RAM used:   78/368 (21%) at main() level
+            119/368 (32%) worst case
+
+Stack used: 9 worst case (9 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  588   465  55  main.c
+   20     0   0  main.h
+  798     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F887.h
+  249    88  10  lcd.h
+ 2227     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
+  153    73   9  Keypad.h
+  535   227  27  Built_in.h
+----- -----
+ 4570   853 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   0    1             @delay_ms2
+0      8   0    0             @const840
+ Inline         2    594  4.3  lcd_init
+ Inline         3    620  3.8  lcd_read_byte
+0     49   1    2    204  3.2  lcd_read_nibble
+0     87   2    3    313  3.4  lcd_send_byte
+0     52   1    1    336  1.9  lcd_send_nibble
+0     35   1    4    335  5.5  lcd_gotoxy
+0     36   1    1    277  3.8  lcd_putc
+0     20   0    1             @delay_ms3
+0     47   1    2    292  3.7  control
+0      8   0    0             @goto12543
+0     15   0    1    110  3.4  keypad_init
+0    151   3    2   1929  2.2  scan
+0     99   2    5    840  7.7  MFRC522_Rd
+0     97   2    5    808  6.2  MFRC522_Wr
+0     20   0    4    127  3.3  MFRC522_Clear_Bit
+0     19   0    4    120  2.8  MFRC522_Set_Bit
+ Inline         0    197  1.8  MFRC522_Reset
+ Inline         1     72  2.0  MFRC522_AntennaOn
+ Inline         0     25  1.2  MFRC522_AntennaOff
+0    102   2    0    298  1.9  MFRC522_Init
+0    254   6   17   2288 15.8  MFRC522_ToCard
+ Inline         7    319  6.0  MFRC522_Request
+ Inline        10    568  8.2  MFRC522_CRC
+0    146   3    5    302  3.3  MFRC522_Halt
+ Inline         9    581  8.2  MFRC522_AntiColl
+0     61   1    3     89  3.6  MFRC522_isCard
+0    103   2    5    154  3.9  MFRC522_ReadCardSerial
+2   1527  34   30  13250 11.6  MAIN
+0      9   0    0             @const990
+0     86   2    4             @PSTRINGC7_837
+0      7   0    0             @const998
+0      9   0    0             @const999
+0      9   0    0             @const1000
+0      9   0    0             @const1002
+0      6   0    0             @const1004
+0      9   0    0             @const1007
+0      6   0    0             @const1009
+0      9   0    0             @const1012
+0      9   0    0             @const1014
+0      9   0    0             @const1015
+0      9   0    0             @const1016
+0      9   0    0             @const1017
+0      9   0    0             @const1018
+0      9   0    0             @const1022
+0      9   0    0             @const1023
+0      3   0    0             @const1024
+1     37   1    2             @PRINTF_X_837
+0      9   0    0             @const1029
+0      9   0    0             @const1030
+0      9   0    0             @const1031
+0      9   0    0             @const1032
+0      9   0    0             @const1033
+0      9   0    0             @const1034
+0      9   0    0             @const1036
+0      9   0    0             @const1037
+0      9   0    0             @const1041
+1     91   2    5             @PSTRINGCN7_837
+0     21   0    3             @DIV88
+1    101   2    6             @PRINTF_D_837
+0      3   0    0             @const1050
+0      9   0    0             @const1053
+0     61   1    0     32  1.0  _CaiDatLCD
+0      4   0    0     17  0.8  lcd_clear
+0     32   1    0    154  1.7  lockdoor
+0      9   0    0             @const1057
+0      9   0    0             @const1058
+1    102   2    1    447  1.9  unlockdoor
+0      9   0    0             @const1060
+0      9   0    0             @const1061
+1    160   4    3   1109  7.2  enter_pass
+0      8   0    0             @const1062
+0      6   0    0             @const1064
+1    110   2    3    833  4.8  check_pass
+0      9   0    0             @const1067
+0      9   0    0             @const1068
+0      9   0    0             @const1069
+1     82   2   10    600  7.2  scan_card
+1     19   0    1    125  4.2  check_card
+1    185   4    1    752  2.4  help
+0      9   0    0             @const1074
+0      9   0    0             @const1075
+0      9   0    0             @const1076
+0      9   0    0             @const1077
+0      9   0    0             @const1078
+0      9   0    0             @const1079
+0      9   0    0             @const1080
+1     50   1    6    187  5.3  eeprom_w_pass
+0     27   1    8    180  5.8  eeprom_r_pass
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               37
+    Statements              853
+    Comments                444
+    Volume (V)              46419
+    Difficulty (D)          159.2
+    Effort to implement (E) 7388276
+    Time to implement (T)   114 hours, 1 minutes
+    Est Delivered Bugs (B)  13
+    Cyclomatic Complexity   113
+    Maintainability (MI)    43
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  2032  12  
+00800-00FFF   937  1111  
+01000-017FF  1527  521  
+01800-01FFF     0  2048  
+
+
+

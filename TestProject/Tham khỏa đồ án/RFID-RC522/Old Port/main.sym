@@ -1,0 +1,242 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-024 data2
+025-02A DefaultKey
+02B-03E g_ucTempbuf
+03F     MAIN.status
+040-05D MAIN.TempStr
+05E     MAIN.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0BD MAIN.Str
+0BE     MFRC522_Halt.status
+0BE     MFRC522_AuthState.auth_mode
+0BE     MFRC522_BakValue.sourceaddr
+0BE     MFRC522_Value.dd_mode
+0BE     @PRINTF_X_645.P1
+0BE     MFRC522_AntennaOn.i
+0BE     @PSTRINGCN7_645.P1
+0BE     MFRC522_Read.addr
+0BE     MFRC522_Write.addr
+0BE     lcd_init.i
+0BE-0BF MFRC522_Select.pSnr
+0BE-0BF MFRC522_Anticoll.pSnr
+0BE     MFRC522_Request.req_code
+0BE     @PSTRINGC7_645.@SCRATCH1
+0BE     @PSTRINGR_645.@SCRATCH1
+0BF-0C2 lcd_init.LCD_INIT_STRING
+0BF     MFRC522_BakValue.goaladdr
+0BF     MFRC522_AuthState.addr
+0BF     @PRINTF_X_645.P1
+0BF-0C0 MFRC522_Read.pData
+0BF     MFRC522_Value.addr
+0BF-0C0 MFRC522_Request.pTagType
+0BF     MFRC522_Halt.Length
+0BF-0C0 MFRC522_Write.pData
+0BF     @PSTRINGC7_645.@SCRATCH2
+0BF     @PSTRINGCN7_645.@SCRATCH1
+0BF     @PSTRINGR_645.@SCRATCH2
+0C0-0C1 MFRC522_AuthState.pKey
+0C0     MFRC522_Select.status
+0C0-0C1 MFRC522_Value.pValue
+0C0     MFRC522_BakValue.status
+0C0     MFRC522_Anticoll.status
+0C0-0D1 MFRC522_Halt.Buffer
+0C0     @PSTRINGC7_645.@SCRATCH3
+0C0     @PSTRINGCN7_645.@SCRATCH2
+0C1     MFRC522_Select.i
+0C1     MFRC522_Request.status
+0C1     MFRC522_Read.status
+0C1     MFRC522_Anticoll.i
+0C1     MFRC522_Write.status
+0C1     MFRC522_BakValue.Length
+0C1     @PSTRINGC7_645.@SCRATCH4
+0C1     @PSTRINGCN7_645.@SCRATCH3
+0C2     MFRC522_Value.status
+0C2     MFRC522_Write.Length
+0C2     lcd_putc.c
+0C2     MFRC522_Request.Length
+0C2     MFRC522_Anticoll.snr_check
+0C2-0C3 MFRC522_AuthState.pSnr
+0C2     MFRC522_Select.Length
+0C2-0D3 MFRC522_BakValue.Buffer
+0C2     MFRC522_Read.Length
+0C2     @PSTRINGCN7_645.@SCRATCH4
+0C3-0D4 MFRC522_Select.Buffer
+0C3     lcd_gotoxy.x
+0C3     MFRC522_Anticoll.Length
+0C3-0D4 MFRC522_Request.Buffer
+0C3     MFRC522_Read.i
+0C3     MFRC522_Write.i
+0C3     @delay_ms1.P1
+0C3     MFRC522_Value.Length
+0C3     lcd_init.@SCRATCH1
+0C4-0D5 MFRC522_Anticoll.Buffer
+0C4     MFRC522_AuthState.status
+0C4     lcd_gotoxy.y
+0C4-0D5 MFRC522_Write.Buffer
+0C4     MFRC522_Value.i
+0C4-0D5 MFRC522_Read.Buffer
+0C5-0D6 MFRC522_Value.Buffer
+0C5     lcd_gotoxy.address
+0C5     MFRC522_AuthState.Length
+0C6     MFRC522_AuthState.i
+0C6     lcd_gotoxy.@SCRATCH1
+0C7-0D8 MFRC522_AuthState.Buffer
+0C7     lcd_send_byte.address
+0C8     lcd_send_byte.n
+0C9     lcd_read_byte.low
+0C9     lcd_send_byte.@SCRATCH1
+0CA     lcd_send_nibble.n
+0CA     lcd_read_byte.high
+0CB     lcd_read_nibble.n
+0CB     lcd_read_byte.@SCRATCH1
+0CC     lcd_read_nibble.@SCRATCH1
+0D4     MFRC522_BakValue.@SCRATCH1
+0D5     MFRC522_Request.@SCRATCH1
+0D5     MFRC522_Select.@SCRATCH1
+0D6     MFRC522_Request.@SCRATCH2
+0D6     MFRC522_Anticoll.@SCRATCH1
+0D6     MFRC522_Select.@SCRATCH2
+0D6     MFRC522_Read.@SCRATCH1
+0D6     MFRC522_Write.@SCRATCH1
+0D7-0D8 CalulateCRC.pInData
+0D7     MFRC522_Anticoll.@SCRATCH2
+0D7     MFRC522_Select.@SCRATCH3
+0D7     MFRC522_Read.@SCRATCH2
+0D7     MFRC522_Write.@SCRATCH2
+0D7     MFRC522_Value.@SCRATCH1
+0D8     MFRC522_Anticoll.@SCRATCH3
+0D8     MFRC522_Read.@SCRATCH3
+0D8     MFRC522_Write.@SCRATCH3
+0D8     MFRC522_Value.@SCRATCH2
+0D9     CalulateCRC.len
+0D9     MFRC522_ComMF522.Command
+0D9     MFRC522_AuthState.@SCRATCH1
+0D9     MFRC522_Value.@SCRATCH3
+0DA-0DB CalulateCRC.pOutData
+0DA-0DB MFRC522_ComMF522.pInData
+0DA     MFRC522_AuthState.@SCRATCH2
+0DB     MFRC522_AuthState.@SCRATCH3
+0DC     CalulateCRC.i
+0DC     MFRC522_ComMF522.InLenByte
+0DD     CalulateCRC.n
+0DD-0DE MFRC522_ComMF522.pOutData
+0DE     CalulateCRC.@SCRATCH1
+0DF-0E0 MFRC522_ComMF522.pOutLenBit
+0DF     CalulateCRC.@SCRATCH2
+0E1     MFRC522_ComMF522.status
+0E2     MFRC522_ComMF522.irqEn
+0E3     MFRC522_ComMF522.waitFor
+0E4     MFRC522_ComMF522.lastBits
+0E5     MFRC522_ComMF522.n
+0E6     MFRC522_ComMF522.i
+0E7     SetBitMask.reg
+0E7     ClearBitMask.reg
+0E7     MFRC522_ComMF522.@SCRATCH1
+0E8     ClearBitMask.mask
+0E8     SetBitMask.mask
+0E8     MFRC522_ComMF522.@SCRATCH2
+0E9     ClearBitMask.tmp
+0E9     SetBitMask.tmp
+0E9     MFRC522_ComMF522.@SCRATCH3
+0EA     MFRC522_ReadRegister.address
+0EA     SetBitMask.@SCRATCH1
+0EA     ClearBitMask.@SCRATCH1
+0EB     MFRC522_WriteRegister.address
+0EB     MFRC522_ReadRegister.i
+0EC     MFRC522_ReadRegister.ucAddr
+0EC     MFRC522_WriteRegister.value
+0ED     MFRC522_ReadRegister.ucResult
+0ED     MFRC522_WriteRegister.i
+0EE     MFRC522_WriteRegister.ucAddr
+0EE     MFRC522_ReadRegister.@SCRATCH1
+0EF     MFRC522_WriteRegister.@SCRATCH1
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const774.call
+000018  @const776.call
+000022  @delay_ms1
+000037  lcd_send_nibble
+00006E  lcd_read_nibble
+0000A1  lcd_send_byte
+0000A9  lcd_read_byte
+000104  lcd_init
+000158  lcd_gotoxy
+00016C  lcd_putc
+0001A6  @PSTRINGC7_645
+00021C  MFRC522_ReadRegister
+00027F  MFRC522_WriteRegister
+0002E0  ClearBitMask
+0002F4  SetBitMask
+000307  CalulateCRC
+00037B  MFRC522_ComMF522
+00047E  MFRC522_Write
+000508  MFRC522_BakValue
+00059B  MFRC522_Value
+00064E  MFRC522_Reset
+000695  MFRC522_AntennaOff
+00069F  MFRC522_AntennaOn
+0006B6  MFRC522_Request
+000706  MFRC522_Anticoll
+000770  @PSTRINGCN7_645
+000800  @PRINTF_X_645
+000829  MFRC522_Select
+00089E  MFRC522_AuthState
+00091B  MFRC522_Read
+000970  @PSTRINGR_645
+000991  MFRC522_Halt
+0009BC  MAIN
+0009BC  @cinit1
+0009C8  @cinit2
+
+Project Directory:
+    C:\Users\Son\Desktop\New folder\
+
+Project Files:
+    main.c                                                  [04-Oct-14 14:01  CRC=F905EF14]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h  [18-Apr-14 16:56  CRC=4F277C97]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c      [19-Sep-13 15:38  CRC=D1A6378A]
+    mfrc522\mfrc522.c                                       [04-Oct-14 12:46  CRC=1DC4636C]
+    mfrc522\mfrc522.h                                       [04-Oct-14 12:12  CRC=88890712]
+
+Source signature=48AA14C5
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

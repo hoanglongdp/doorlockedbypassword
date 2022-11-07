@@ -1,0 +1,36 @@
+Added Component: Designator=ASM1117(SOT223)
+Added Component: Designator=C4(C-0805)
+Added Component: Designator=C5(C-0805)
+Added Component: Designator=C6(CP1/2.5)
+Added Component: Designator=C7(CP1/2.5)
+Added Component: Designator=JDC(DC-IN)
+Added Component: Designator=LED?(LED-5-Green)
+Added Component: Designator=R2(R-025,100)
+Added Pin To Net: NetName=GND Pin=ASM1117-1
+Added Pin To Net: NetName=3.3V Pin=ASM1117-2
+Added Pin To Net: NetName=VCC Pin=ASM1117-3
+Added Pin To Net: NetName=VCC Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=3.3V Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=VCC Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=3.3V Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=VCC Pin=JDC-1
+Added Pin To Net: NetName=GND Pin=JDC-2
+Added Pin To Net: NetName=GND Pin=JDC-3
+Added Pin To Net: NetName=GND Pin=LED?-2
+Added Pin To Net: NetName=VCC Pin=R2-1
+Added Pin To Net: NetName=NetLED?_1 Pin=LED?-1
+Added Pin To Net: NetName=NetLED?_1 Pin=R2-2
+Added Net: Name=NetLED?_1
+Added Member To Class: ClassName=Sheet1 Member=Component ASM1117 
+Added Member To Class: ClassName=Sheet1 Member=Component C4 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C5 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C6 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component C7 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component JDC Jac DC
+Added Member To Class: ClassName=Sheet1 Member=Component LED? LED
+Added Member To Class: ClassName=Sheet1 Member=Component R2 Res
+Added Room: Name=Sheet1

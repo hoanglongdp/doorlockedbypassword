@@ -1,0 +1,316 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-02F PhimNhan
+030     @TRIS_C
+031-032 key_UID
+033     TagType
+034     checkpass
+035     keypad
+036     Key
+037-03B pass
+03C-040 rightpass
+041-045 rightid
+046     matchpass
+047     matchcard
+048     card_num
+049-04A @sprintf_string
+04B     MAIN.k
+04B-04E atan2.y
+04C     MAIN.checkeep
+04D     MAIN.m
+04E     MAIN.done
+04F-052 atan2.x
+04F     MAIN.i
+050     MAIN.i
+051     MAIN.n
+052     MAIN.done
+053-056 atan2.z
+053-058 MAIN.UID
+057.0   atan2.sign
+058     atan2.quad
+059     MAIN.i
+05A     MAIN.done
+05B     MAIN.key_del
+05C-060 MAIN.UID
+061     MAIN.z
+062-066 MAIN.UID_del
+067     enter_pass.i
+067     keypad_init.i
+067-068 check_pass.c
+067     lcd_init.i
+067     MFRC522_AntennaOn.stt
+067     MAIN.@SCRATCH1
+067     help.@SCRATCH1
+068     eeprom_w_pass.addr
+068     @PRINTF_D_837.P1
+068     @PSTRINGCN7_837.P2
+068-06D scan_card.UID
+068     scan.Key
+068     @PRINTF_X_837.P1
+068     lcd_init.@SCRATCH1
+068     MAIN.@SCRATCH2
+068     enter_pass.@SCRATCH1
+068     check_card.@SCRATCH1
+069     control.TenCot
+069     @PRINTF_D_837.P1
+069     @PRINTF_X_837.P2
+069-06A eeprom_w_pass.arr
+069     scan.@SCRATCH1
+069     @PSTRINGC7_837.@SCRATCH1
+069     @PSTRINGCN7_837.@SCRATCH1
+069     unlockdoor.@SCRATCH1
+069     enter_pass.@SCRATCH2
+069     check_pass.@SCRATCH1
+06A     control.TrangThai
+06A     @delay_ms3.P1
+06A     @PSTRINGC7_837.@SCRATCH2
+06A     @PSTRINGCN7_837.@SCRATCH2
+06A     @PRINTF_D_837.@SCRATCH1
+06B     eeprom_w_pass.i
+06B     @PSTRINGC7_837.@SCRATCH3
+06B     @PSTRINGCN7_837.@SCRATCH3
+06B     @PRINTF_D_837.@SCRATCH2
+06C     @PSTRINGC7_837.@SCRATCH4
+06C     @PSTRINGCN7_837.@SCRATCH4
+06C     @PRINTF_D_837.@SCRATCH3
+06C     eeprom_w_pass.@SCRATCH1
+06D     @PRINTF_D_837.@SCRATCH4
+06D     eeprom_w_pass.@SCRATCH2
+06E     @DIV88.P1
+06E     lcd_putc.c
+06E     scan_card.i
+06F     scan_card.j
+06F     @delay_ms2.P1
+06F     @DIV88.P2
+06F     lcd_gotoxy.x
+070     lcd_gotoxy.y
+070     scan_card.TagType
+070     @DIV88.@SCRATCH1
+071-072 MFRC522_isCard.TagType
+071     lcd_gotoxy.address
+071     MFRC522_Halt.unLen
+071-072 MFRC522_ReadCardSerial.str
+071     scan_card.@SCRATCH1
+072     eeprom_r_pass.addr
+072-075 MFRC522_Halt.buff
+072     lcd_gotoxy.@SCRATCH1
+073-074 eeprom_r_pass.arr
+073     lcd_send_byte.address
+073     MFRC522_Request.reqMode
+073     MFRC522_ReadCardSerial._status
+073     MFRC522_isCard.@SCRATCH1
+074-075 MFRC522_Request.TagType
+074     lcd_send_byte.n
+074-075 MFRC522_AntiColl.serNum
+074     MFRC522_ReadCardSerial.@SCRATCH1
+075     lcd_read_byte.low
+075     eeprom_r_pass.i
+075     lcd_send_byte.@SCRATCH1
+075     MFRC522_ReadCardSerial.@SCRATCH2
+076     MFRC522_CRC.length
+076     lcd_read_byte.high
+076     MFRC522_Request._status
+076     MFRC522_AntiColl._status
+076     lcd_send_nibble.n
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B-07C MFRC522_CRC.dataIn
+07B     MFRC522_Request.backBits
+07B     MFRC522_AntiColl.i
+07B     lcd_read_nibble.n
+07B     lcd_read_byte.@SCRATCH1
+07B     eeprom_r_pass.@SCRATCH1
+07C     MFRC522_AntiColl.serNumCheck
+07C     lcd_read_nibble.@SCRATCH1
+07C     MFRC522_Request.@SCRATCH1
+07C     eeprom_r_pass.@SCRATCH2
+07D-07E MFRC522_CRC.dataOut
+07D     MFRC522_AntiColl.unLen
+07D     MFRC522_Request.@SCRATCH2
+07D     eeprom_r_pass.@SCRATCH3
+0A0     MFRC522_CRC.i
+0A0     MFRC522_ToCard.command
+0A0     MFRC522_AntiColl.@SCRATCH1
+0A1-0A2 MFRC522_ToCard.sendData
+0A1     MFRC522_CRC.n
+0A1     MFRC522_AntiColl.@SCRATCH2
+0A2     MFRC522_CRC.@SCRATCH1
+0A3     MFRC522_ToCard.sendLen
+0A3     MFRC522_CRC.@SCRATCH2
+0A4-0A5 MFRC522_ToCard.backData
+0A6-0A7 MFRC522_ToCard.backLen
+0A8     MFRC522_ToCard._status
+0A9     MFRC522_ToCard.irqEn
+0AA     MFRC522_ToCard.waitIRq
+0AB     MFRC522_ToCard.lastBits
+0AC     MFRC522_ToCard.n
+0AD     MFRC522_ToCard.i
+0AE     MFRC522_Clear_Bit.addr
+0AE     MFRC522_Set_Bit.addr
+0AE     MFRC522_ToCard.@SCRATCH1
+0AF     MFRC522_Clear_Bit.mask
+0AF     MFRC522_Set_Bit.mask
+0AF     MFRC522_ToCard.@SCRATCH2
+0B0     MFRC522_Set_Bit.tmp
+0B0     MFRC522_Clear_Bit.tmp
+0B0     MFRC522_ToCard.@SCRATCH3
+0B1     MFRC522_Rd.address
+0B1     MFRC522_Clear_Bit.@SCRATCH1
+0B1     MFRC522_Set_Bit.@SCRATCH1
+0B2     MFRC522_Rd.i
+0B2     MFRC522_Wr.address
+0B3     MFRC522_Wr.value
+0B3     MFRC522_Rd.ucAddr
+0B4     MFRC522_Rd.ucResult
+0B4     MFRC522_Wr.i
+0B5     MFRC522_Wr.ucAddr
+0B5     MFRC522_Rd.@SCRATCH1
+0B6     MFRC522_Wr.@SCRATCH1
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  @const990.call
+000015  @const998.call
+00001C  @const999.call
+000025  @const1000.call
+00002E  @const1002.call
+000037  @const1004.call
+00003D  @const1007.call
+000046  @const1009.call
+00004C  @const1012.call
+000055  @const1014.call
+00005E  @const1015.call
+000067  @const1016.call
+000070  @const1017.call
+000079  @const1018.call
+000082  @const1022.call
+00008B  @const1023.call
+000094  @const1024.call
+000097  @const1029.call
+0000A0  @const1030.call
+0000A9  @const1031.call
+0000B2  @const1032.call
+0000BB  @const1033.call
+0000C4  @const1034.call
+0000CD  @const1036.call
+0000D6  @const1037.call
+0000DF  @const1041.call
+0000E8  @const1050.call
+0000EB  @const1053.call
+0000F4  @const1057.call
+0000FD  @const1058.call
+000106  @const1060.call
+00010F  @const1061.call
+000118  @const1062.call
+000120  @const1064.call
+000126  @const1067.call
+00012F  @const1068.call
+000138  @const1069.call
+000141  @const1074.call
+00014A  @const1075.call
+000153  @const1076.call
+00015C  @const1077.call
+000165  @const1078.call
+00016E  @const1079.call
+000177  @const1080.call
+000180  @delay_ms2
+000194  lcd_send_nibble
+0001C8  lcd_read_nibble
+0001F9  lcd_send_byte
+0001FC  lcd_read_byte
+000250  lcd_gotoxy
+000273  lcd_putc
+000297  _CaiDatLCD
+000297  lcd_init
+0002D4  MFRC522_Wr
+000335  MFRC522_Rd
+000398  MFRC522_Clear_Bit
+0003AC  MFRC522_Set_Bit
+0003BF  MFRC522_Init
+0003C6  MFRC522_Reset
+00040D  MFRC522_AntennaOff
+000414  MFRC522_AntennaOn
+000425  control
+000454  @goto12543
+00045C  keypad_init
+00046B  eeprom_r_pass
+000486  @PSTRINGC7_837
+0004DC  scan
+000573  @delay_ms3
+000587  lockdoor
+0005A7  MFRC522_ToCard
+0006A5  MFRC522_isCard
+0006AB  MFRC522_Request
+0006E2  MFRC522_ReadCardSerial
+0006E6  MFRC522_AntiColl
+000749  MFRC522_Halt
+000754  MFRC522_CRC
+0007DB  @DIV88
+0007F0  lcd_clear
+000800  scan_card
+000852  unlockdoor
+0008B8  check_card
+0008CB  help
+000984  enter_pass
+000A24  check_pass
+000A92  @PRINTF_X_837
+000AB7  eeprom_w_pass
+000AE9  @PSTRINGCN7_837
+000B44  @PRINTF_D_837
+001000  MAIN
+001000  @cinit1
+001018  @cinit2
+
+Project Directory:
+    C:\Users\HOANGLONG\Desktop\RFID L298\CODE RFID\
+
+Project Files:
+    main.c                                                  [10-Dec-17 22:00  CRC=30FF9ED7]
+    main.h                                                  [09-Dec-17 16:25  CRC=07E502C6]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F887.h [20-Dec-19 15:23  CRC=B6025F67]
+    lcd.h                                                   [07-Dec-17 12:56  CRC=8DFFC79F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h  [22-Sep-16 08:36  CRC=9CF8C837]
+    Keypad.h                                                [08-Dec-17 22:05  CRC=6A5AB75F]
+    Built_in.h                                              [06-Dec-17 16:45  CRC=54A21C2B]
+
+Source signature=2D7E808F
+Program memory checksum=0000
+Hex file CRC=AA22
+
+Units:
+    C:\Users\HOANGLONG\Desktop\RFID L298\CODE RFID\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

@@ -1,0 +1,38 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=main.c
+[main.c]
+Type=4
+[mru-list]
+1=main.c
+
+[Opened Files]
+1=main.c
+2=
+3=
+
+[ProjectLog]
+Days=1
+D1=04-10-2014
+D1_L=10
+D1_L1=[45871]Stopped Editing.
+D1_L2=[45900]Started Editing.
+D1_L3=[46259]Stopped Editing.
+D1_L4=[47618]Started Editing.
+D1_L5=[47809]Stopped Editing.
+TotalEdit=47
+TotalDebug=0
+D1_E=47
+D1_D=0
+D1_L6=[47809]Project Closed.
+D1_L7=[49959]Project Opened.
+D1_L8=[50450]Started Editing.
+D1_L9=[50950]Stopped Editing.
+D1_L10=[50950]Project Closed.
+[Units]
+Count=1
+1=main (main)

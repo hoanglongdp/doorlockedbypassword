@@ -1,0 +1,39 @@
+Added Component: Designator=D2(DIO-1A)
+Added Component: Designator=HD2(HED2)
+Added Component: Designator=LED3(LED-5-BLUE)
+Added Component: Designator=R6(R1/4W)
+Added Component: Designator=R18(R1/4W)
+Added Component: Designator=RL2(RELAY1)
+Added Component: Designator=T3(TO92-BCE)
+Added Pin To Net: NetName=VCC Pin=D2-2
+Added Pin To Net: NetName=VCC Pin=R6-1
+Added Pin To Net: NetName=VCC Pin=RL2-5
+Added Pin To Net: NetName=GND Pin=T3-3
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=NetD2_1 Pin=LED3-2
+Added Pin To Net: NetName=NetD2_1 Pin=RL2-4
+Added Pin To Net: NetName=NetD2_1 Pin=T3-2
+Added Net: Name=NetD2_1
+Added Pin To Net: NetName=NetHD2_1 Pin=HD2-1
+Added Pin To Net: NetName=NetHD2_1 Pin=RL2-1
+Added Net: Name=NetHD2_1
+Added Pin To Net: NetName=NetHD2_2 Pin=HD2-2
+Added Pin To Net: NetName=NetHD2_2 Pin=RL2-3
+Added Net: Name=NetHD2_2
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED3_1 Pin=R6-2
+Added Net: Name=NetLED3_1
+Added Pin To Net: NetName=NetR18_1 Pin=R18-1
+Added Pin To Net: NetName=NetR18_1 Pin=T3-1
+Added Net: Name=NetR18_1
+Added Pin To Net: NetName=RELAY Pin=R18-2
+Added Pin To Net: NetName=RELAY Pin=U1-5
+Added Net: Name=RELAY
+Added Member To Class: ClassName=Sheet1 Member=Component D2 Diode
+Added Member To Class: ClassName=Sheet1 Member=Component HD2 Header 2
+Added Member To Class: ClassName=Sheet1 Member=Component LED3 LED
+Added Member To Class: ClassName=Sheet1 Member=Component R6 1k
+Added Member To Class: ClassName=Sheet1 Member=Component R18 1k
+Added Member To Class: ClassName=Sheet1 Member=Component RL2 Relay1
+Added Member To Class: ClassName=Sheet1 Member=Component T3 C1815
+Added Room: Name=Sheet1

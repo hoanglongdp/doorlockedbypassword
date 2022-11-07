@@ -1,0 +1,479 @@
+#include <main.h>
+
+#define pass_add 0x04
+#define card_add 0x24
+#define card_num_add 0x14
+
+
+char *key_UID;
+unsigned int TagType;  
+int8 checkpass; 
+int8 keypad,key;
+int8 pass[5];
+int8 rightpass[5];
+int8 rightid[5];                ////= {0xe0, 0x10, 0x02, 0xa8, 0x5a};
+int8 *card_UID;
+int8 matchpass=0, matchcard=0;
+int8 card_num;
+//int8 eeppass[6];
+   
+void _CaiDatLCD(void);
+void lcd_clear(void);
+void clear_UID(void);
+unsigned int8 *card_id();
+void door(void);
+void lockdoor(void);
+void enter_pass(void);
+void check_pass(int8 *c);
+void scan_card(void);
+void check_card(void);
+void help(void);
+void eeprom_w_pass(unsigned int8 addr, unsigned char*arr);
+void eeprom_r_pass(unsigned int8 addr, unsigned char*arr);
+
+
+
+
+
+
+
+void main()
+{  
+   _CaiDatLCD();
+   MFRC522_Init ();
+   keypad_init();
+   card_num=read_eeprom(card_num_add);
+   if(card_num==0xff) write_eeprom(card_num_add,0);
+   
+   eeprom_r_pass(0x04, rightpass);
+   int8 k=0, checkeep=0;
+   for(k=0;k<5;k++){
+      if(rightpass[k]==0xff) checkeep++;
+   }
+   if(checkeep == 5){
+      lcd_gotoxy(1,1);
+      printf(lcd_putc," ENTER NEW PASS ");
+      lcd_gotoxy(6,2);
+      int8 m=0;
+      while(m<5){
+         key=scan();
+         if(key){
+            keypad = phimnhan[key-1];
+            if(keypad>='0' && keypad<='9'){
+               printf(lcd_putc,"%c",keypad);
+               write_eeprom(0x04+m, keypad);
+               delay_ms(300);
+               lcd_gotoxy(6+m,2);
+               printf(lcd_putc,"*");
+               m++;
+            }
+         }
+      }
+      lcd_putc('\f');
+   }
+   
+   eeprom_r_pass(0x04, rightpass);
+   
+   lockdoor();
+   lcd_gotoxy(1,1);//dinh vi toa do muon hien thi ki tu len LCD
+   printf(lcd_putc,"    WELCOME!");//hien thi chuoi ki tu len LCD
+   //delay_ms(2000);
+   lcd_gotoxy(1,1);
+   printf(lcd_putc,"  DOOR   LOCK   ");
+   lcd_gotoxy(1,2);
+   printf(lcd_putc,"PRESS # TO HELP!");
+   
+   while(TRUE)
+   {     
+     // card_num = 0xff- read_eeprom(card_num_add);
+      scan_card();
+      check_card();
+      key = scan();
+      if(key){
+         keypad=phimnhan[key-1];
+         if(keypad == 'A'){
+            while(TRUE){
+               enter_pass(); 
+               check_pass(&checkpass);
+               if(checkpass) break;
+            }   
+         }
+
+/************************************************************************/
+         if(keypad == 'B'){
+            int8 done=1;
+            while(done){
+               lcd_putc('\f');
+               lcd_gotoxy(1,1);
+               printf(lcd_putc, " ENTER OLD PASS ");
+               delay_ms(500);
+               lcd_gotoxy(6,2);
+               int8 i=0;
+               matchpass=0;
+               while(i<5){
+                  //scan_card();
+                  //check_card();
+                  //if(matchpass==7) break;
+                  key = scan();
+                  if(key){
+                     keypad=phimnhan[key-1];
+                     printf(lcd_putc,"*");
+                     pass[i]=keypad; 
+                     if(pass[i] == rightpass[i]) matchpass++;
+                     i++;
+                     delay_ms(300);
+                  }
+               } 
+               
+               if (matchpass==5){
+                  matchpass=0;
+                  checkpass= 1;  
+                  lcd_putc('\f');
+                  lcd_gotoxy(1,1);
+                  printf(lcd_putc, " ENTER NEW PASS ");
+                  delay_ms(500);
+                  lcd_gotoxy(6,2);
+                  int8 i=0;
+                  matchpass=0;
+                  while(i<5){
+                     key = scan();
+                     if(key){
+                        keypad=phimnhan[key-1];
+                        printf(lcd_putc,"%c",keypad);
+                        rightpass[i]=keypad; 
+                        i++;
+                        delay_ms(300);
+                     }
+                  }
+                  lcd_gotoxy(1,2);
+                  printf(lcd_putc, "     DONE!      ");
+                  delay_ms(1000);
+                  // ghi-doc eeprom
+                  
+                  unsigned int8 n;
+                  for(n=0;n<5;n++){
+                     write_eeprom(0x04+n,rightpass[n]); 
+                  }  
+                  eeprom_r_pass(0x04, rightpass);
+                  /////////////////////////////////////////
+                  done=0;
+                  lcd_gotoxy(1,1);
+                  printf(lcd_putc,"  DOOR   LOCK   ");
+                  lcd_gotoxy(1,2);
+                  printf(lcd_putc,"PRESS # TO HELP!");
+                  
+                  
+               }
+               else {
+                  matchpass=0;
+                  lcd_gotoxy(1,2);
+                  printf(lcd_putc,"   Incorrect!   "); delay_ms(1000);
+                  lcd_gotoxy(1,2);
+                  printf(lcd_putc,"   Try again!   "); delay_ms(1000);
+                  lcd_gotoxy(1,2);
+                  printf(lcd_putc,"                "); lcd_gotoxy(6,2);
+                  checkpass= 0;
+               }           
+            }
+         }
+
+/***************************************************************************/
+         if(keypad == 'C'){
+            int8 done=1;
+            char UID[6],i;
+            card_num =read_eeprom(card_num_add);
+            while(done){
+               lcd_putc('\c');
+               lcd_gotoxy(1,1);
+               printf(lcd_putc,"  ADD NEW CARD  ");
+               lcd_gotoxy(1,2);
+               printf(lcd_putc,"  INSERT CARD!  ");
+               
+               if (MFRC522_isCard (&TagType)){             
+                  if(MFRC522_ReadCardSerial (&UID)){
+                     lcd_gotoxy(1,2);
+                     printf(lcd_putc," ID: ");
+                     for(i=0;i<5;i++){
+                        printf(lcd_putc,"%x",UID[i]);
+                     }                 
+                     delay_ms(1000);
+                     lcd_clear();
+                     lcd_gotoxy(1,1);
+                     printf(lcd_putc,"  ADD NEW CARD  ");
+                     lcd_gotoxy(1,2);
+                     printf(lcd_putc,"     DONE!      ");  
+                     delay_ms(1000);
+                     done=0;
+                     eeprom_w_pass(card_add +16*card_num, UID);
+                     card_num++;
+                     write_eeprom(card_num_add, card_num);
+//!                     eeprom_r_pass(card_add+16*(card_num-1),rightid);
+//!                     lcd_clear();
+//!                     for(i=0;i<5;i++){
+//!                        printf(lcd_putc,"%x",rightid[i]);
+//!                     }
+//!                     delay_ms(2000);
+                  }
+                     MFRC522_Halt() ;           
+               }        
+               
+            }
+            lcd_gotoxy(1,1);
+            printf(lcd_putc,"  DOOR   LOCK   ");
+            lcd_gotoxy(1,2);
+            printf(lcd_putc,"PRESS # TO HELP!");   
+         }
+         
+         
+         if(keypad == 'D'){
+            while(TRUE){   
+               lcd_clear(); key=0;
+               lcd_gotoxy(1,1); 
+               printf(lcd_putc,"  REMOVE CARD!  ");
+               lcd_gotoxy(1,2);
+               printf(lcd_putc,"CHOOSE CARD: 1-5");
+               key=0;
+               
+               while(TRUE){
+                  int8 UID[5], z;
+                  
+                  if(key){
+                     keypad=phimnhan[key-1];
+                     lcd_putc('\f');   lcd_gotoxy(1,1);
+                     printf(lcd_putc,"     CARD %d     ");
+                     lcd_gotoxy(1,2);  printf(lcd_putc," ID: ");
+                     eeprom_r_pass(card_add +16*(keypad-49), UID);
+                     lcd_gotoxy(6,2);
+                     for(z=0;z<5;z++){
+                        printf(lcd_putc,"%x",UID[z]);
+                     }
+                  }
+                  while(TRUE){
+                     key=scan();
+                     if(key) break;
+                  }
+               }
+               
+               
+               key=scan();
+               if(key){
+                  keypad=phimnhan[key-1];
+                  if(keypad=='#'){
+                     keypad=0;
+                     break;
+                  } 
+               }
+            }
+         }
+         
+         
+         
+         if(keypad == '#'){
+            help();   
+         }
+            
+         keypad = 0;
+         key=0;
+      }
+   }
+
+
+
+//! char UID[6],i;
+//!   unsigned int TagType;  
+//!   while(1){
+//!      if (MFRC522_isCard (&TagType)) //Check any card
+//!       {             
+//!           if(MFRC522_ReadCardSerial (&UID)) 
+//!           {
+//!               lcd_gotoxy(1,2);
+//!               printf(lcd_putc,"ID:");
+//!               for(i=0;i<5;i++)
+//!               {
+//!                  printf(lcd_putc,"%x",UID[i]);//hien thi tung ki tu nhan duoc
+//!                  //o dang ma so hexa
+//!               }                           
+//!           }        
+//!            //Ngu dong
+//!            MFRC522_Halt() ;           
+//!       }        
+//!   }
+}
+
+void _CaiDatLCD(void)
+{
+   lcd_init();//khoi dong module LCD
+   lcd_putc('\f');//xoa trang man hinh LCD
+}
+
+void lcd_clear(){
+   lcd_putc('\f');
+}
+
+void clear_UID(){
+
+   int8 i;
+   for(i=0;i<5;i++){
+      key_UID[i]=0x00;
+   }
+}
+
+unsigned int8 *card_id(){
+   unsigned int8 UID[5];
+   unsigned int8 TagType; 
+   if (MFRC522_isCard (&TagType)) //Check any card
+       {             
+        if(MFRC522_ReadCardSerial (&UID)) 
+        {
+            return UID;                    
+        }        
+        MFRC522_Halt() ; 
+    }
+    else return 0;
+    
+}
+
+void lockdoor(){
+   output_high(pin_A1); // led do
+   output_low(pin_A0);  // led xanh 
+   lcd_gotoxy(1,1);
+   printf(lcd_putc,"  DOOR   LOCK   ");
+   lcd_gotoxy(1,2);
+   printf(lcd_putc,"PRESS # TO HELP!");
+  
+}
+
+void unlockdoor(){
+   output_low(pin_A1);
+   output_high(pin_A0);
+   lcd_gotoxy(1,1);
+   printf(lcd_putc,"  DOOR  UNLOCK  ");
+   lcd_gotoxy(1,2);
+   printf(lcd_putc,"PRESS # TO HELP!");
+   delay_ms(1000);
+   lockdoor();
+}
+
+void enter_pass(){
+   lcd_putc('\f');
+   lcd_gotoxy(1,1);
+   printf(lcd_putc, " ENTER PASSWORD");
+   delay_ms(500);
+   lcd_gotoxy(6,2);
+   int8 i=0;
+   matchpass=0;
+   while(i<5){
+      
+      scan_card();
+      check_card();
+      if(matchpass==7) break;
+      key = scan();
+      if(key){
+         keypad=phimnhan[key-1];
+         printf(lcd_putc,"*");
+         pass[i]=keypad; 
+         if(pass[i] == rightpass[i]) matchpass++;
+         i++;
+         delay_ms(300);
+      }
+   }  
+}
+
+void check_pass(char *c){
+   if (matchpass==5){
+      matchpass=0;
+      unlockdoor();
+      checkpass= 1;  
+   }
+   else if (matchpass==7){
+      matchpass=0;
+      matchcard=0;
+      checkpass= 1;
+      break;
+   }
+   else {
+      matchpass=0;
+      lockdoor();
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"   Incorrect!   "); delay_ms(1000);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"   Try again!   "); delay_ms(1000);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"                "); lcd_gotoxy(6,2);
+      checkpass= 0;
+   }
+}
+
+void scan_card(){
+   //lcd_clear();
+   char UID[6],i,j;
+   unsigned int TagType; 
+   matchcard = 0;
+   if (MFRC522_isCard (&TagType)){             
+      if(MFRC522_ReadCardSerial (&UID)){
+         card_num = read_eeprom(card_num_add);
+         for(i=0;i<card_num;i++){
+            eeprom_r_pass(card_add+16*i, rightid);
+            for(j=0;j<5;j++){
+               if(UID[j] == rightid[j]) matchcard ++;
+               //lcd_gotoxy(1+j,1); printf(lcd_putc,"%x",UID[j]);  
+               //lcd_gotoxy(1+j,2); printf(lcd_putc,"%x",rightid[j]);  
+            }
+            //lcd_gotoxy(12,1); printf(lcd_putc,"%d",matchcard);
+            //delay_ms(5000);
+         }
+      }
+      MFRC522_Halt() ;          
+   }
+}
+
+void check_card(){
+   if((matchcard % 5) == 0 && matchcard >=5){
+   
+      unlockdoor();
+      //while(MFRC522_isCard (&TagType));
+      matchcard=0;
+      matchpass=7;
+      break;
+   }
+}
+
+void help(){
+   lcd_clear();
+   lcd_gotoxy(1,1); printf(lcd_putc,"  HOW TO USE?   ");
+   
+   while(scan()){
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"A to UNLOCK/LOCK");
+      delay_ms(3000);   lcd_gotoxy(1,2);
+      printf(lcd_putc,"B to CHANGE PASS");
+      delay_ms(3000);   lcd_gotoxy(1,2);
+      printf(lcd_putc,"C to ADD NEWCARD");
+      delay_ms(3000);   lcd_gotoxy(1,2);
+      printf(lcd_putc,"D to REMOVE CARD");
+      delay_ms(3000);   lcd_gotoxy(1,2);
+      printf(lcd_putc,"* to CLEAR PASS ");
+      delay_ms(3000);   lcd_gotoxy(1,2);
+      printf(lcd_putc,"# to EXIT       ");
+      delay_ms(3000);   lcd_gotoxy(1,2);      
+   }
+}
+
+
+void eeprom_w_pass(unsigned int8 addr,unsigned char*arr)
+{
+   unsigned int8 i;
+   for(i=0;i<5;i++){
+      write_eeprom(addr+i,*(arr+i)); 
+   }
+   
+}
+void eeprom_r_pass(unsigned int8 addr, unsigned char*arr)
+{
+   unsigned int8 i;
+   for(i=0;i<5;i++)
+   {
+      arr[i]=read_eeprom(addr+i);
+   }
+}
+

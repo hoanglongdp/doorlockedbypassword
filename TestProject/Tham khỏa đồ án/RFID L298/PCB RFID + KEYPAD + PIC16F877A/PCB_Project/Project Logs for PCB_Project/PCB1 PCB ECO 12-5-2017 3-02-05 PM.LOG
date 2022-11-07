@@ -1,0 +1,54 @@
+Removed Pin From Net: NetName=NetD2_1 Pin=D2-1
+Removed Pin From Net: NetName=VCC Pin=D2-2
+Removed Pin From Net: NetName=NetHD2_1 Pin=HD2-1
+Removed Pin From Net: NetName=NetHD2_2 Pin=HD2-2
+Removed Pin From Net: NetName=NetLED3_1 Pin=LED3-1
+Removed Pin From Net: NetName=NetD2_1 Pin=LED3-2
+Removed Pin From Net: NetName=VCC Pin=R6-1
+Removed Pin From Net: NetName=NetLED3_1 Pin=R6-2
+Removed Pin From Net: NetName=NetR18_1 Pin=R18-1
+Removed Pin From Net: NetName=RELAY Pin=R18-2
+Removed Pin From Net: NetName=NetHD2_1 Pin=RL2-1
+Removed Pin From Net: NetName=NetHD2_2 Pin=RL2-3
+Removed Pin From Net: NetName=NetD2_1 Pin=RL2-4
+Removed Pin From Net: NetName=VCC Pin=RL2-5
+Removed Pin From Net: NetName=NetR18_1 Pin=T3-1
+Removed Pin From Net: NetName=NetD2_1 Pin=T3-2
+Removed Pin From Net: NetName=GND Pin=T3-3
+Removed Pin From Net: NetName=RELAY Pin=U1-5
+Change Component Footprint: Designator=C6 Old Footprint=CA-050,025W New Footprint=CP1/2.5
+Change Component Footprint: Designator=C7 Old Footprint=CA-050,025W New Footprint=CP1/2.5
+Added Component: Designator=header(Header2)
+Added Component: Designator=Led1(L-5G)
+Added Component: Designator=Led2(L-5R)
+Added Component: Designator=R3(R-025,100)
+Added Component: Designator=R4(R-025,100)
+Added Pin To Net: NetName=RELAY Pin=header-1
+Added Pin To Net: NetName=NetR18_1 Pin=header-2
+Added Pin To Net: NetName=NetD2_1 Pin=Led1-1
+Added Pin To Net: NetName=GND Pin=Led1-2
+Added Pin To Net: NetName=NetHD2_1 Pin=Led2-1
+Added Pin To Net: NetName=GND Pin=Led2-2
+Added Pin To Net: NetName=NetLED3_1 Pin=R3-1
+Added Pin To Net: NetName=NetD2_1 Pin=R3-2
+Added Pin To Net: NetName=NetHD2_2 Pin=R4-1
+Added Pin To Net: NetName=NetHD2_1 Pin=R4-2
+Added Pin To Net: NetName=NetLED3_1 Pin=U1-2
+Added Pin To Net: NetName=NetHD2_2 Pin=U1-3
+Added Pin To Net: NetName=RELAY Pin=U1-4
+Added Pin To Net: NetName=NetR18_1 Pin=U1-5
+Change Net Name : Old Net Name=NetD2_1 New Net Name=NetLed1_1
+Change Net Name : Old Net Name=NetHD2_1 New Net Name=NetLed2_1
+Change Net Name : Old Net Name=NetHD2_2 New Net Name=L2
+Change Net Name : Old Net Name=NetLED3_1 New Net Name=L1
+Change Net Name : Old Net Name=NetR18_1 New Net Name=H2
+Change Net Name : Old Net Name=RELAY New Net Name=H1
+Added Member To Class: ClassName=Sheet1 Member=Component header Header2
+Added Member To Class: ClassName=Sheet1 Member=Component Led1 LEDA
+Added Member To Class: ClassName=Sheet1 Member=Component Led2 LEDA
+Added Member To Class: ClassName=Sheet1 Member=Component R3 Res
+Added Member To Class: ClassName=Sheet1 Member=Component R4 Res
+Added Member To Class: ClassName=Sheet1 Member=Component 
+Added Member To Class: ClassName=Sheet1 Member=Component U1 PIC16F887-I/P
+Added Member To Class: ClassName=Sheet1 Member=Component X 
+Added Room: Name=Sheet1

@@ -1,0 +1,111 @@
+
+#include <16F877A.h>
+#device ADC=10
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used FOR I/O
+#use delay(crystal=12MHz)
+
+#define DELAY 10    
+#define RC PIN_E0 
+#define LCD_ENABLE_PIN PIN_D2             
+#define LCD_RS_PIN PIN_D0                 
+#define LCD_RW_PIN PIN_D1
+#define LCD_DATA4 PIN_D4   
+#define LCD_DATA5 PIN_D5                                    
+#define LCD_DATA6 PIN_D6                             
+#define LCD_DATA7 PIN_D7 
+#define MFRC522_CS PIN_E0
+      
+#include <lcd.c>                                                    
+
+ INT16 Ticks = 0; 
+                           
+ INT16 adc;  
+ INT8 mode = 0;                                                   
+
+ #INT_EXT 
+void ngat_ngoai()
+{  
+    mode++;     
+   IF(mode==1)
+   {
+      printf (LCD_PUTC, "\fMicro Servo SG90\nManual mode ");  
+      
+   }
+                                                                  
+   IF(mode==2)                                           
+   {
+      printf (LCD_PUTC, "\fMicro Servo SG90\nAuto mode ");  
+      mode=0;                                                                 
+   }  
+                                                             
+  
+  
+}
+
+                                                      
+void main()
+{                     
+   
+   lcd_init ();
+   printf (LCD_PUTC, "\f MuaLinhKien.Vn \nPIC 16/18 Basic Kit");
+   enable_interrupts (INT_EXT) ;
+   enable_interrupts (INT_EXT_H2L);  
+   output_bit(MFRC522_CS,1);                   
+   delay_ms (2000);
+   setup_adc_ports (AN0);                   
+   setup_adc (ADC_CLOCK_INTERNAL);
+   set_adc_channel (0);
+   delay_us (10);
+  printf (LCD_PUTC, "\fMicro Servo SG90\nmualinhkien.vn");     
+  enable_interrupts (GLOBAL);    
+
+   WHILE (true)
+   {           
+      IF (mode == 1)
+      {
+         adc = read_adc ();
+         IF (adc > 1000) adc = 1000;
+         
+         output_high (RC);
+         delay_ms (1);
+         delay_us (adc);
+         output_low (RC);
+         delay_us (1000 - adc) ;
+         delay_ms (18);
+      }                                                      
+
+      IF (mode == 0)
+      {
+           for(int i=0;i<=50;i++  ) 
+            {
+           adc=1000;
+           output_high (RC);
+            delay_ms (1);
+            delay_us (adc);                                               
+            output_low (RC);
+            delay_us (1000 - adc) ;             
+            delay_ms (18);  
+      } 
+      for(i=0;i<=50;i++  ) 
+            {                                  
+            adc=0;            
+            output_high (RC);                             
+            delay_ms (1);                          
+            delay_us (adc);
+            output_low (RC);          
+            delay_us (1000 - adc) ;             
+            delay_ms (18);
+            
+           
+            }         
+          
+       } 
+         
+      
+
+      
+   }
+}
+                                                  

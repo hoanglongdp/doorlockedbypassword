@@ -1,0 +1,77 @@
+[PROJECT]
+Target=TestPic.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.092
+Compiler=PCM
+CCSVersion=5.092
+[Target Data]
+FileList=TestPic.c
+[Directories]
+Include=
+[D:\TestProject\TestPic\TestPic]
+Type=4
+[mru-list]
+1=TestPic.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=5
+D1=01-04-2021
+D1_L=6
+D1_L1=[43221]Project Opened.
+D1_L2=[43240]Started Editing.
+D1_L3=[43711]Stopped Editing.
+D1_L4=[44023]Started Editing.
+D1_L5=[44569]Stopped Editing.
+TotalEdit=9
+TotalDebug=0
+D1_E=7
+D1_D=0
+D1_L6=[46494]Project Closed.
+D2=02-04-2021
+D2_L=2
+D2_L1=[78498]Project Opened.
+D2_L2=[78569]Project Closed.
+D3=03-04-2021
+D3_L=4
+D3_L1=[63204]Project Opened.
+D3_L2=[63234]Started Editing.
+D3_L3=[63542]Stopped Editing.
+D3_E=1
+D3_D=0
+D3_L4=[64706]Project Closed.
+D4=04-04-2021
+D4_L=8
+D4_L1=[47776]Project Opened.
+D4_L2=[48857]Project Closed.
+D4_L3=[49779]Project Opened.
+D4_L4=[49782]Project Closed.
+D4_L5=[49784]Project Opened.
+D4_L6=[49794]Started Editing.
+D4_L7=[50094]Stopped Editing.
+D4_L8=[50121]Project Closed.
+D5=07-04-2021
+D5_L=6
+D5_L1=[41514]Project Opened.
+D5_L2=[41527]Started Editing.
+D5_L3=[41831]Stopped Editing.
+D5_L4=[44877]Started Editing.
+D5_L5=[45184]Stopped Editing.
+D5_E=1
+D5_D=0
+D5_L6=[45465]Project Closed.
+
+[Opened Files]
+1=TestPic.c
+t1=1
+Count=1
+[TestPic.c]
+Type=4
+
+[defines]
+buildcount=17
+[Units]
+Count=1
+1=TestPic (main)

@@ -1,0 +1,7 @@
+#define _unlock_h_
+#use delay(clock=20000000)
+
+void enter_pass(void);
+void insert_card(void);
+void add_new_card(void);
+

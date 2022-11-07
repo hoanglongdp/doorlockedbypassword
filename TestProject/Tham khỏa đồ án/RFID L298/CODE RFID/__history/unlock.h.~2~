@@ -1,0 +1,4 @@
+#define _unlock_h_
+#use delay(clock=20000000)
+
+

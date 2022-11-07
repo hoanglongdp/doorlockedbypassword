@@ -1,0 +1,180 @@
+ÀÄmain
+   ÀÄMAIN  1/250  Ram=62
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄlcd_init  0/84  Ram=6
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄlcd_send_nibble  0/55  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÃÄlcd_send_nibble  0/55  Ram=1
+      ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ÀÄlcd_send_byte  0/99  Ram=3
+      ³     ÃÄlcd_read_byte  (Inline)  Ram=3
+      ³     ³  ÃÄlcd_read_nibble  0/51  Ram=2
+      ³     ³  ÀÄlcd_read_nibble  0/51  Ram=2
+      ³     ÃÄlcd_send_nibble  0/55  Ram=1
+      ³     ÀÄlcd_send_nibble  0/55  Ram=1
+      ÃÄ@PSTRINGC7_645  0/118  Ram=4
+      ³  ÃÄlcd_putc  0/58  Ram=1
+      ³  ³  ÃÄlcd_gotoxy  0/20  Ram=4
+      ³  ³  ³  ÀÄlcd_send_byte  0/99  Ram=3
+      ³  ³  ³     ÀÄ*
+      ³  ³  ÃÄlcd_send_byte  0/99  Ram=3
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+      ³  ³  ÃÄlcd_gotoxy  0/20  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄlcd_send_byte  0/99  Ram=3
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÀÄlcd_send_byte  0/99  Ram=3
+      ³  ³     ÀÄ*
+      ³  ÀÄlcd_putc  0/58  Ram=1
+      ³     ÀÄ*
+      ÃÄMFRC522_Write  0/138  Ram=27
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ³  ÀÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄSetBitMask  0/19  Ram=4
+      ³  ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ³  ÀÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÀÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄSetBitMask  0/19  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ³  ÃÄSetBitMask  0/19  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ³  ÃÄSetBitMask  0/19  Ram=4
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÀÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄMFRC522_BakValue  0/147  Ram=23
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄMFRC522_Value  0/179  Ram=28
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄMFRC522_Reset  0/71  Ram=0
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÀÄMFRC522_WriteRegister  0/97  Ram=5
+      ÃÄMFRC522_AntennaOff  0/10  Ram=0
+      ³  ÀÄClearBitMask  0/20  Ram=4
+      ³     ÀÄ*
+      ÃÄMFRC522_AntennaOn  0/23  Ram=1
+      ³  ÃÄMFRC522_ReadRegister  0/99  Ram=5
+      ³  ÀÄSetBitMask  0/19  Ram=4
+      ³     ÀÄ*
+      ÃÄ@delay_ms1  0/21  Ram=1
+      ÃÄMFRC522_Request  0/80  Ram=25
+      ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄSetBitMask  0/19  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄMFRC522_Anticoll  0/106  Ram=27
+      ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_WriteRegister  0/97  Ram=5
+      ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÀÄSetBitMask  0/19  Ram=4
+      ³     ÀÄ*
+      ÃÄ@PSTRINGCN7_645  0/124  Ram=5
+      ³  ÃÄlcd_putc  0/58  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/58  Ram=1
+      ³     ÀÄ*
+      ÃÄ@PRINTF_X_645  1/41  Ram=2
+      ³  ÃÄlcd_putc  0/58  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/58  Ram=1
+      ³     ÀÄ*
+      ÃÄlcd_putc  0/58  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_X_645  1/41  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/58  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_X_645  1/41  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/58  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_X_645  1/41  Ram=2
+      ³  ÀÄ*
+      ÃÄMFRC522_Select  1/117  Ram=26
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÃÄClearBitMask  0/20  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄMFRC522_AuthState  1/125  Ram=30
+      ³  ÃÄMFRC522_ComMF522  0/259  Ram=17
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ReadRegister  0/99  Ram=5
+      ÃÄMFRC522_Read  1/85  Ram=27
+      ³  ÃÄCalulateCRC  0/116  Ram=9
+      ³  ³  ÀÄ*
+      ³  ÀÄMFRC522_ComMF522  0/259  Ram=17
+      ³     ÀÄ*
+      ÃÄlcd_putc  0/58  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/58  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PSTRINGR_645  1/33  Ram=2
+      ³  ÀÄlcd_putc  0/58  Ram=1
+      ³     ÀÄ*
+      ÀÄMFRC522_Halt  1/43  Ram=20
+         ÃÄCalulateCRC  0/116  Ram=9
+         ³  ÀÄ*
+         ÀÄMFRC522_ComMF522  0/259  Ram=17
+            ÀÄ*

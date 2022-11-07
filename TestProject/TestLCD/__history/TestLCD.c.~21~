@@ -1,0 +1,71 @@
+#include <TestLCD.h>
+#include <LCD16x2c>
+
+#define LCD_ENABLE_PIN  PIN_D0                        
+#define LCD_RS_PIN PIN_D1  
+#define LCD_RW_PIN PIN_D2 
+#define LCD_DATA4 PIN_D4 
+#define LCD_DATA5 PIN_D5 
+#define LCD_DATA6 PIN_D6 
+#define LCD_DATA7 PIN_D7 
+
+void LCD_Enable(void)
+{
+   output_high(LCD_ENABLE_PIN);
+   delay_us(3);
+   output_low(LCD_ENABLE_PIN);
+   delay_us(50);
+}
+
+void LCD_Send4Bit(unsigned char Data)  //Chuyen 4 bit len chan d4 -> d6
+{
+   output_bit(LCD_DATA4,Data&&0x01);
+   output_bit(LCD_DATA5,(Data>>1)&&1);
+   output_bit(LCD_DATA6,(Data>>2)&&1);
+   output_bit(LCD_DATA7,(Data>>3)&&1);
+}
+
+void LCD_SendCommand(unsigned char command)  //chuyen ma lenh len chan data LCD
+{
+   output_low(LCD_RS_PIN);
+   LCD_Send4Bit(command>>4);
+   LCD_Enable();
+   LCD_Send4Bit(command);
+   LCD_Enable();
+}
+
+void LCD_Clear()  //xoa man hinh LCD
+{
+   LCD_SendCommand(0x01);
+   delay_ms(10);
+}
+void lcdgo(unsigned int8 add)
+{
+   output_low(LCD_RS_PIN);
+   output_d(add);
+   output_high(LCD_ENABLE_PIN);  delay_ms(2);
+   output_low(LCD_ENABLE_PIN);  delay_ms(2);
+}
+void  command()
+{
+   lcdgo(0x38);
+   lcdgo(0x0f);
+   lcdgo(0x01); delay_ms(2);
+   lcdgo(0x06);
+   
+}
+void main()
+{
+   lcd_init ();
+   command();
+   set_tris_d(0x00);
+   lcdgo(0x80);
+   lcd_putc("Hello World");
+   while(TRUE)
+   {
+      
+
+      //TODO: User Code
+   }
+
+}

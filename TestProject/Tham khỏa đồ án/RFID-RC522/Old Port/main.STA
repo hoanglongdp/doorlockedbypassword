@@ -1,0 +1,82 @@
+
+ROM used:   2722/8192 (33%)
+            2742/8192 (33%) including unused fragments
+
+            1.5 Average locations per line
+            6.6 Average locations per statement
+
+RAM used:   98/368 (27%) at main() level
+            176/368 (48%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  102    35   8  main.c
+  672     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+  456   100  24  ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  504   279  67  mfrc522\mfrc522.c
+  131     0   0  mfrc522\mfrc522.h
+----- -----
+ 1865   414 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     21   1    1             @delay_ms1
+ Inline         3    760  4.5  lcd_read_byte
+0     51   2    2    262  3.7  lcd_read_nibble
+0     55   2    1    399  2.4  lcd_send_nibble
+0     99   4    3    415  3.7  lcd_send_byte
+0     84   3    6    852  6.2  lcd_init
+0     20   1    4    208  6.3  lcd_gotoxy
+0     58   2    1    354  4.7  lcd_putc
+0     80   3   25    584  6.6  MFRC522_Request
+0    106   4   27    779  8.1  MFRC522_Anticoll
+1    117   4   26    813  8.6  MFRC522_Select
+1    125   5   30    802  8.1  MFRC522_AuthState
+1     85   3   27    623  8.0  MFRC522_Read
+0    138   5   27   1108  8.2  MFRC522_Write
+0    179   7   28   1594  8.3  MFRC522_Value
+0    147   5   23   1536  5.8  MFRC522_BakValue
+1     43   2   20    287  3.7  MFRC522_Halt
+0    116   4    9    660  8.5  CalulateCRC
+0     71   3    0    458  2.3  MFRC522_Reset
+0     99   4    5    823  7.3  MFRC522_ReadRegister
+0     97   4    5    792  5.8  MFRC522_WriteRegister
+0     19   1    4    116  2.6  SetBitMask
+0     20   1    4    124  2.9  ClearBitMask
+0    259  10   17   2376 14.8  MFRC522_ComMF522
+0     23   1    1    108  3.3  MFRC522_AntennaOn
+0     10   0    0     27  1.0  MFRC522_AntennaOff
+1    250   9   62   1280  4.8  MAIN
+0     20   1    0             @const774
+0    118   4    4             @PSTRINGC7_645
+0     10   0    0             @const776
+0    124   5    5             @PSTRINGCN7_645
+1     41   2    2             @PRINTF_X_645
+1     33   1    2             @PSTRINGR_645
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               26
+    Statements              414
+    Comments                260
+    Volume (V)              30880
+    Difficulty (D)          150.2
+    Effort to implement (E) 4639003
+    Time to implement (T)   71 hours, 35 minutes
+    Est Delivered Bugs (B)  9
+    Cyclomatic Complexity   60
+    Maintainability (MI)    40
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  2024  20  
+00800-00FFF   694  1354  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

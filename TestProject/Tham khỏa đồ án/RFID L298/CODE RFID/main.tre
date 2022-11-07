@@ -1,0 +1,474 @@
+ÀÄmain
+   ÀÄMAIN  2/1527  Ram=30
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄ_CaiDatLCD  0/61  Ram=0
+      ³  ÃÄlcd_init  (Inline)  Ram=2
+      ³  ³  ÃÄ@delay_ms2  0/20  Ram=1
+      ³  ³  ÃÄlcd_send_nibble  0/52  Ram=1
+      ³  ³  ÃÄ@delay_ms2  0/20  Ram=1
+      ³  ³  ÃÄlcd_send_nibble  0/52  Ram=1
+      ³  ³  ÃÄ@const840  0/8  Ram=0
+      ³  ³  ÀÄlcd_send_byte  0/87  Ram=3
+      ³  ³     ÃÄlcd_read_byte  (Inline)  Ram=3
+      ³  ³     ³  ÃÄlcd_read_nibble  0/49  Ram=2
+      ³  ³     ³  ÀÄlcd_read_nibble  0/49  Ram=2
+      ³  ³     ÃÄlcd_send_nibble  0/52  Ram=1
+      ³  ³     ÀÄlcd_send_nibble  0/52  Ram=1
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÃÄlcd_send_byte  0/87  Ram=3
+      ³     ³  ÀÄ*
+      ³     ÃÄ@delay_ms2  0/20  Ram=1
+      ³     ÃÄlcd_gotoxy  0/35  Ram=4
+      ³     ³  ÀÄlcd_send_byte  0/87  Ram=3
+      ³     ³     ÀÄ*
+      ³     ÃÄlcd_send_byte  0/87  Ram=3
+      ³     ³  ÀÄ*
+      ³     ÀÄlcd_send_byte  0/87  Ram=3
+      ³        ÀÄ*
+      ÃÄMFRC522_Init  0/102  Ram=0
+      ³  ÃÄMFRC522_Reset  (Inline)  Ram=0
+      ³  ³  ÀÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ÃÄMFRC522_AntennaOff  (Inline)  Ram=0
+      ³  ³  ÀÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³  ³     ÃÄMFRC522_Rd  0/99  Ram=5
+      ³  ³     ÀÄMFRC522_Wr  0/97  Ram=5
+      ³  ÀÄMFRC522_AntennaOn  (Inline)  Ram=1
+      ³     ÃÄMFRC522_Rd  0/99  Ram=5
+      ³     ÀÄMFRC522_Set_Bit  0/19  Ram=4
+      ³        ÃÄMFRC522_Rd  0/99  Ram=5
+      ³        ÀÄMFRC522_Wr  0/97  Ram=5
+      ÃÄkeypad_init  0/15  Ram=1
+      ³  ÀÄcontrol  0/47  Ram=2
+      ³     ÀÄ@goto12543  0/8  Ram=0
+      ÃÄeeprom_r_pass  0/27  Ram=8
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄcontrol  0/47  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÀÄcontrol  0/47  Ram=2
+      ³     ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄeeprom_r_pass  0/27  Ram=8
+      ÃÄlockdoor  0/32  Ram=0
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÀÄ@PSTRINGC7_837  0/86  Ram=4
+      ³     ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄscan_card  1/82  Ram=10
+      ³  ÃÄMFRC522_isCard  0/61  Ram=3
+      ³  ³  ÀÄMFRC522_Request  (Inline)  Ram=7
+      ³  ³     ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³     ÀÄMFRC522_ToCard  0/254  Ram=17
+      ³  ³        ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³        ÃÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³  ³        ³  ÀÄ*
+      ³  ³        ÃÄMFRC522_Set_Bit  0/19  Ram=4
+      ³  ³        ³  ÀÄ*
+      ³  ³        ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³        ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³        ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³        ÃÄMFRC522_Set_Bit  0/19  Ram=4
+      ³  ³        ³  ÀÄ*
+      ³  ³        ÃÄMFRC522_Rd  0/99  Ram=5
+      ³  ³        ÃÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³  ³        ³  ÀÄ*
+      ³  ³        ÃÄMFRC522_Rd  0/99  Ram=5
+      ³  ³        ÃÄMFRC522_Rd  0/99  Ram=5
+      ³  ³        ÃÄMFRC522_Rd  0/99  Ram=5
+      ³  ³        ÀÄMFRC522_Rd  0/99  Ram=5
+      ³  ÃÄMFRC522_ReadCardSerial  0/103  Ram=5
+      ³  ³  ÀÄMFRC522_AntiColl  (Inline)  Ram=9
+      ³  ³     ÃÄMFRC522_Wr  0/97  Ram=5
+      ³  ³     ÃÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³  ³     ³  ÀÄ*
+      ³  ³     ÀÄMFRC522_ToCard  0/254  Ram=17
+      ³  ³        ÀÄ*
+      ³  ÃÄeeprom_r_pass  0/27  Ram=8
+      ³  ÀÄMFRC522_Halt  0/146  Ram=5
+      ³     ÃÄMFRC522_CRC  (Inline)  Ram=10
+      ³     ³  ÃÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³     ³  ³  ÀÄ*
+      ³     ³  ÃÄMFRC522_Set_Bit  0/19  Ram=4
+      ³     ³  ³  ÀÄ*
+      ³     ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³     ³  ÃÄMFRC522_Wr  0/97  Ram=5
+      ³     ³  ÃÄMFRC522_Rd  0/99  Ram=5
+      ³     ³  ÃÄMFRC522_Rd  0/99  Ram=5
+      ³     ³  ÀÄMFRC522_Rd  0/99  Ram=5
+      ³     ÃÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄMFRC522_ToCard  0/254  Ram=17
+      ³     ³  ÀÄ*
+      ³     ÀÄMFRC522_Clear_Bit  0/20  Ram=4
+      ³        ÀÄ*
+      ÃÄcheck_card  1/19  Ram=1
+      ³  ÃÄ@DIV88  0/21  Ram=3
+      ³  ÀÄunlockdoor  1/102  Ram=1
+      ³     ÃÄlcd_gotoxy  0/35  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_gotoxy  0/35  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄ@delay_ms3  0/20  Ram=1
+      ³     ÃÄ@delay_ms3  0/20  Ram=1
+      ³     ÃÄlockdoor  0/32  Ram=0
+      ³     ³  ÀÄ*
+      ³     ÀÄ@delay_ms3  0/20  Ram=1
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄhelp  1/185  Ram=1
+      ³  ÃÄlcd_clear  0/4  Ram=0
+      ³  ³  ÀÄlcd_putc  0/36  Ram=1
+      ³  ³     ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄscan  0/151  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÀÄlcd_gotoxy  0/35  Ram=4
+      ³     ÀÄ*
+      ÃÄlockdoor  0/32  Ram=0
+      ³  ÀÄ*
+      ÃÄenter_pass  1/160  Ram=3
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄscan_card  1/82  Ram=10
+      ³  ³  ÀÄ*
+      ³  ÃÄcheck_card  1/19  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄscan  0/151  Ram=2
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄ@delay_ms3  0/20  Ram=1
+      ÃÄcheck_pass  1/110  Ram=3
+      ³  ÃÄunlockdoor  1/102  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlockdoor  0/32  Ram=0
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms3  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_gotoxy  0/35  Ram=4
+      ³     ÀÄ*
+      ÃÄlockdoor  0/32  Ram=0
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄeeprom_r_pass  0/27  Ram=8
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄlockdoor  0/32  Ram=0
+      ³  ÀÄ*
+      ÃÄenter_pass  1/160  Ram=3
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄMFRC522_isCard  0/61  Ram=3
+      ³  ÀÄ*
+      ÃÄMFRC522_ReadCardSerial  0/103  Ram=5
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PRINTF_X_837  1/37  Ram=2
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄlcd_clear  0/4  Ram=0
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄeeprom_w_pass  1/50  Ram=6
+      ÃÄMFRC522_Halt  0/146  Ram=5
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlockdoor  0/32  Ram=0
+      ³  ÀÄ*
+      ÃÄenter_pass  1/160  Ram=3
+      ³  ÀÄ*
+      ÃÄlcd_clear  0/4  Ram=0
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGCN7_837  1/91  Ram=5
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÀÄ*
+      ÃÄ@PRINTF_D_837  1/101  Ram=6
+      ³  ÃÄ@DIV88  0/21  Ram=3
+      ³  ÃÄ@DIV88  0/21  Ram=3
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_putc  0/36  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÀÄ*
+      ÃÄ@PSTRINGCN7_837  1/91  Ram=5
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄeeprom_r_pass  0/27  Ram=8
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PRINTF_X_837  1/37  Ram=2
+      ³  ÀÄ*
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄeeprom_w_pass  1/50  Ram=6
+      ÃÄlcd_gotoxy  0/35  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_837  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄ@delay_ms3  0/20  Ram=1
+      ÃÄscan  0/151  Ram=2
+      ³  ÀÄ*
+      ÀÄlockdoor  0/32  Ram=0
+         ÀÄ*

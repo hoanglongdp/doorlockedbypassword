@@ -1,0 +1,128 @@
+[PROJECT]
+Target=TestLCD.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.092
+Compiler=PCM
+CCSVersion=5.092
+[Target Data]
+FileList=TestLCD.c
+[Directories]
+Include=
+[D:\TestProject\TestLCD\TestLCD]
+Type=4
+[mru-list]
+1=TestLCD.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=8
+D1=02-04-2021
+D1_L=7
+D1_L1=[78569]Project Opened.
+D1_L2=[78604]Started Editing.
+D1_L3=[78985]Stopped Editing.
+D1_L4=[81207]Started Editing.
+D1_L5=[81534]Stopped Editing.
+D1_L6=[82411]Started Editing.
+D1_L7=[82712]Stopped Editing.
+D2=03-04-2021
+D2_L=3
+D2_L1=[62990]Started Editing.
+D2_L2=[63184]Stopped Editing.
+TotalEdit=16
+TotalDebug=0
+D2_E=6
+D2_D=0
+D2_L3=[63184]Project Closed.
+D3=04-04-2021
+D3_L=20
+D3_L1=[49782]Project Opened.
+D3_L2=[49784]Project Closed.
+D3_L3=[50133]Project Opened.
+D3_L4=[50151]Started Editing.
+D3_L5=[50454]Stopped Editing.
+D3_L6=[51960]Started Editing.
+D3_L7=[52974]Stopped Editing.
+D3_L8=[53978]Started Editing.
+D3_L9=[54300]Stopped Editing.
+D3_L10=[55014]Started Editing.
+D3_L11=[55690]Stopped Editing.
+D3_L12=[55692]Started Editing.
+D3_L13=[55999]Stopped Editing.
+D3_L14=[56143]Started Editing.
+D3_L15=[56667]Stopped Editing.
+D3_L16=[57354]Project Opened.
+D3_L17=[57360]Started Editing.
+D3_L18=[57764]Stopped Editing.
+D3_L19=[57803]Started Editing.
+D3_L20=[58163]Stopped Editing.
+D4=05-04-2021
+D4_L=26
+D4_L1=[47104]Project Opened.
+D4_L2=[47820]Started Editing.
+D4_L3=[48120]Stopped Editing.
+D4_E=10
+D4_D=0
+D4_L4=[58652]Project Closed.
+D4_L5=[66405]Project Opened.
+D4_L6=[80953]Started Editing.
+D4_L7=[81253]Stopped Editing.
+D4_L8=[82052]Started Editing.
+D4_L9=[82100]Stopped Editing.
+D4_L10=[82100]Project Closed.
+D4_L11=[82122]Project Opened.
+D4_L12=[82157]Started Editing.
+D4_L13=[82162]Stopped Editing.
+D4_L14=[82162]Project Closed.
+D4_L15=[82197]Project Opened.
+D4_L16=[82209]Started Editing.
+D4_L17=[82361]Stopped Editing.
+D4_L18=[82361]Project Closed.
+D4_L19=[82382]Project Opened.
+D4_L20=[82911]Started Editing.
+D4_L21=[83258]Stopped Editing.
+D4_L22=[83877]Started Editing.
+D4_L23=[84210]Stopped Editing.
+D4_L24=[84917]Started Editing.
+D4_L25=[85036]Stopped Editing.
+D4_L26=[85037]Project Closed.
+D5=06-04-2021
+D5_L=1
+D5_L1=[75518]Project Opened.
+D6=07-04-2021
+D6_L=8
+D6_L1=[40507]Project Opened.
+D6_L2=[41498]Project Closed.
+D6_L3=[45486]Project Opened.
+D6_L4=[47267]Project Closed.
+D6_L5=[47601]Project Opened.
+D6_L6=[48432]Started Editing.
+D6_L7=[48732]Stopped Editing.
+D6_E=0
+D6_D=0
+D6_L8=[51912]Project Closed.
+D7=08-04-2021
+D7_L=1
+D7_L1=[58615]Project Opened.
+D8=09-04-2021
+D8_L=1
+D8_L1=[4114]Project Closed.
+
+[Opened Files]
+1=TestLCD.c
+t1=1
+2=LCD16x2.c
+t2=1
+Count=1
+3=TestLCD.h
+t3=1
+[TestLCD.c]
+Type=4
+
+[defines]
+buildcount=49
+[Units]
+Count=1
+1=TestLCD (main)

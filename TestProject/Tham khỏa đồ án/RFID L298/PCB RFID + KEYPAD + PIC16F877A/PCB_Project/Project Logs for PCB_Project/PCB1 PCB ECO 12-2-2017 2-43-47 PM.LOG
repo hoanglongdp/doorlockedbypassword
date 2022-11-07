@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VCC Pin=-1
+Removed Pin From Net: NetName=GND Pin=-3
+Change Component Footprint: Designator=C6 Old Footprint=CA-050,025W New Footprint=CP1/2.5
+Change Component Footprint: Designator=C7 Old Footprint=CA-050,025W New Footprint=CP1/2.5
+Added Pin To Net: NetName=GND Pin=-1
+Added Pin To Net: NetName=VCC Pin=-3
+Added Member To Class: ClassName=Sheet1 Member=Component ASM1117 
+Added Member To Class: ClassName=Sheet1 Member=Component C4 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C5 100nF
+Added Member To Class: ClassName=Sheet1 Member=Component C6 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component C7 100uF
+Added Member To Class: ClassName=Sheet1 Member=Component JDC Jac DC
+Added Member To Class: ClassName=Sheet1 Member=Component LED? LED
+Added Member To Class: ClassName=Sheet1 Member=Component R2 Res
+Added Room: Name=Sheet1

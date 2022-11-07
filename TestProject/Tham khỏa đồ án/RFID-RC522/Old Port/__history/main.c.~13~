@@ -1,0 +1,62 @@
+
+#include <16F877A.h>
+#device ADC=10
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used FOR I/O
+#use delay(crystal=12MHz)
+
+#define DELAY 10    
+#define RC PIN_E0 
+#define LCD_ENABLE_PIN PIN_D2             
+#define LCD_RS_PIN PIN_D0                 
+#define LCD_RW_PIN PIN_D1
+#define LCD_DATA4 PIN_D4   
+#define LCD_DATA5 PIN_D5                                    
+#define LCD_DATA6 PIN_D6                             
+#define LCD_DATA7 PIN_D7 
+
+#define MF522_NSS PIN_C0
+#define MF522_SCK PIN_C1
+#define MF522_SI  PIN_C2
+#define MF522_SO  PIN_C3              
+#define MF522_RST PIN_E2               
+#include <lcd.c> 
+
+typedef   signed char int8_t;
+typedef   signed int int16_t;
+typedef   signed long int32_t;
+typedef   unsigned char uint8_t;
+typedef   unsigned int  uint16_t;                                 
+typedef   unsigned long uint32_t;
+typedef   float float32_t;  
+
+#include "mfrc522/mfrc522.h"
+uint8_t  data1[16] = {0x12,0x34,0x56,0x78,0xED,0xCB,0xA9,0x87,0x12,0x34,0x56,0x78,0x01,0xFE,0x01,0xFE};
+uint8_t  data2[4]  = {0x12,0,0,0};
+uint8_t  DefaultKey[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; 
+uint8_t g_ucTempbuf[20]; 
+
+                                                      
+                                                      
+void main()
+{                     
+    uint8_t status;
+    uint8_t TempStr[30];
+    uint8_t Str[30];   
+   lcd_init ();
+   printf (LCD_PUTC, "\f MuaLinhKien.Vn \nPIC 16/18 Basic Kit");
+   status = MFRC522_Write(1, Str);
+   status = MFRC522_BakValue(1, 2);
+   status = MFRC522_Value(PICC_DECREMENT,1,data2);              
+  
+     MFRC522_Reset();
+     MFRC522_AntennaOff(); 
+     MFRC522_AntennaOn();  
+      delay_ms(2000);         
+   WHILE (true)
+   {           
+      
+   }
+}
+                                                  

@@ -1,0 +1,76 @@
+#include <TestRFID.h>
+#define MFRC522_CS PIN_E2                 
+#define MFRC522_SCK PIN_C3
+#define MFRC522_SI  PIN_C4                           
+#define MFRC522_SO  PIN_C5              
+#define MFRC522_RST PIN_E0    
+#include<Built_in.h>     
+char RedData[6] ={0x43,0xA8,0xF2,0x02};
+char BlueData[6] ={0xAA,0x61,0xDF,0x80}; 
+int1 red=0,blue=0;
+int1 get_red(char Data[],char UID[] )
+{
+ FOR (int i = 0; i < 4; i++)                  
+   {   
+      if(UID[i]== Data[i] )
+      {                                   
+         red=1; 
+      } 
+      else                                             
+      {
+         red=0;
+         break;
+      }        
+   } 
+   return red;
+int1 get_blue(char Data[],char UID[] )
+{
+ FOR (int i = 0; i < 4; i++)                  
+   {   
+      if(UID[i]== Data[i] )
+      {                                   
+         blue=1; 
+      } 
+      else                                             
+      {
+         blue=0;
+         break;
+      }        
+   } 
+   return blue;
+void main()
+{
+   char UID[6];
+   MFRC522_Init ();
+   unsigned int TagType;
+   
+   while(TRUE)
+   {
+      if (MFRC522_isCard (&TagType))
+      {
+         if (MFRC522_ReadCardSerial (&UID)) 
+         {
+            if(get_red(RedData,UID))
+            {
+               output_low(pin_D0);
+            }
+            else
+            {
+               output_high(pin_D0);
+            }
+            if(get_blue(BlueData,UID))
+            {
+               output_low(pin_D1);
+            }
+            else
+            {
+               output_high(pin_D1);
+            }
+         }
+         
+      }
+
+      //TODO: User Code
+   }
+
+}

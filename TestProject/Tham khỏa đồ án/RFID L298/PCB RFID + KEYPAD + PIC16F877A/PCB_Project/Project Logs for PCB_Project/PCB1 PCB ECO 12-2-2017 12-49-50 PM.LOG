@@ -1,0 +1,111 @@
+Added Component: Designator=C1(C025-025,040)
+Added Component: Designator=C2(C025-025,040)
+Added Component: Designator=C3(CA-040,015)
+Added Component: Designator=Keypad(JP8-C1T)
+Added Component: Designator=LCD1(JP16-C1T)
+Added Component: Designator=R1(R-025,100)
+Added Component: Designator=RFID(JP8-C1T)
+Added Component: Designator=SW(SW2)
+Added Component: Designator=(VR-S2)
+Added Component: Designator=U1(DIP40Q)
+Added Component: Designator=X(XT2)
+Added Pin To Net: NetName=3.3V Pin=RFID-8
+Added Net: Name=3.3V
+Added Pin To Net: NetName=COL1 Pin=Keypad-1
+Added Pin To Net: NetName=COL1 Pin=U1-19
+Added Net: Name=COL1
+Added Pin To Net: NetName=COL2 Pin=Keypad-2
+Added Pin To Net: NetName=COL2 Pin=U1-20
+Added Net: Name=COL2
+Added Pin To Net: NetName=COL3 Pin=Keypad-3
+Added Pin To Net: NetName=COL3 Pin=U1-21
+Added Net: Name=COL3
+Added Pin To Net: NetName=COL4 Pin=Keypad-4
+Added Pin To Net: NetName=COL4 Pin=U1-22
+Added Net: Name=COL4
+Added Pin To Net: NetName=CS Pin=RFID-1
+Added Pin To Net: NetName=CS Pin=U1-10
+Added Net: Name=CS
+Added Pin To Net: NetName=D4 Pin=LCD1-11
+Added Pin To Net: NetName=D4 Pin=U1-37
+Added Net: Name=D4
+Added Pin To Net: NetName=D5 Pin=LCD1-12
+Added Pin To Net: NetName=D5 Pin=U1-38
+Added Net: Name=D5
+Added Pin To Net: NetName=D6 Pin=LCD1-13
+Added Pin To Net: NetName=D6 Pin=U1-39
+Added Net: Name=D6
+Added Pin To Net: NetName=D7 Pin=LCD1-14
+Added Pin To Net: NetName=D7 Pin=U1-40
+Added Net: Name=D7
+Added Pin To Net: NetName=EN Pin=LCD1-6
+Added Pin To Net: NetName=EN Pin=U1-36
+Added Net: Name=EN
+Added Pin To Net: NetName=GND Pin=-3
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=LCD1-1
+Added Pin To Net: NetName=GND Pin=LCD1-16
+Added Pin To Net: NetName=GND Pin=RFID-6
+Added Pin To Net: NetName=GND Pin=SW-2
+Added Pin To Net: NetName=GND Pin=U1-12
+Added Pin To Net: NetName=GND Pin=U1-31
+Added Net: Name=GND
+Added Pin To Net: NetName=JQR Pin=RFID-5
+Added Net: Name=JQR
+Added Pin To Net: NetName=MISO Pin=RFID-4
+Added Pin To Net: NetName=MISO Pin=U1-24
+Added Net: Name=MISO
+Added Pin To Net: NetName=MOSI Pin=RFID-3
+Added Pin To Net: NetName=MOSI Pin=U1-23
+Added Net: Name=MOSI
+Added Pin To Net: NetName=Net_2 Pin=-2
+Added Pin To Net: NetName=Net_2 Pin=LCD1-3
+Added Net: Name=Net_2
+Added Pin To Net: NetName=ROW1 Pin=Keypad-5
+Added Pin To Net: NetName=ROW1 Pin=U1-27
+Added Net: Name=ROW1
+Added Pin To Net: NetName=ROW2 Pin=Keypad-6
+Added Pin To Net: NetName=ROW2 Pin=U1-28
+Added Net: Name=ROW2
+Added Pin To Net: NetName=ROW3 Pin=Keypad-7
+Added Pin To Net: NetName=ROW3 Pin=U1-29
+Added Net: Name=ROW3
+Added Pin To Net: NetName=ROW4 Pin=Keypad-8
+Added Pin To Net: NetName=ROW4 Pin=U1-30
+Added Net: Name=ROW4
+Added Pin To Net: NetName=RST' Pin=RFID-7
+Added Pin To Net: NetName=RST' Pin=U1-8
+Added Net: Name=RST'
+Added Pin To Net: NetName=RS Pin=LCD1-4
+Added Pin To Net: NetName=RS Pin=U1-34
+Added Net: Name=RS
+Added Pin To Net: NetName=RST Pin=C3-1
+Added Pin To Net: NetName=RST Pin=R1-2
+Added Pin To Net: NetName=RST Pin=SW-1
+Added Pin To Net: NetName=RST Pin=U1-1
+Added Net: Name=RST
+Added Pin To Net: NetName=RW Pin=LCD1-5
+Added Pin To Net: NetName=RW Pin=U1-35
+Added Net: Name=RW
+Added Pin To Net: NetName=SCK Pin=RFID-2
+Added Pin To Net: NetName=SCK Pin=U1-18
+Added Net: Name=SCK
+Added Pin To Net: NetName=VCC Pin=-1
+Added Pin To Net: NetName=VCC Pin=LCD1-2
+Added Pin To Net: NetName=VCC Pin=LCD1-15
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=U1-11
+Added Pin To Net: NetName=VCC Pin=U1-32
+Added Net: Name=VCC
+Added Pin To Net: NetName=XTAL1 Pin=C1-1
+Added Pin To Net: NetName=XTAL1 Pin=U1-13
+Added Pin To Net: NetName=XTAL1 Pin=X-2
+Added Net: Name=XTAL1
+Added Pin To Net: NetName=XTAL2 Pin=C2-1
+Added Pin To Net: NetName=XTAL2 Pin=U1-14
+Added Pin To Net: NetName=XTAL2 Pin=X-1
+Added Net: Name=XTAL2
+Added Class: Name=Sheet1
+Added Room: Name=Sheet1

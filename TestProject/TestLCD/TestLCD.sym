@@ -1,0 +1,88 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 @sprintf_string
+022     lcd_gotoxy.x
+022     lcd_init.i
+022     @PSTRINGC7_684.@SCRATCH1
+023     lcd_gotoxy.y
+023     lcd_init.@SCRATCH1
+023     @PSTRINGC7_684.@SCRATCH2
+024     lcd_gotoxy.address
+024     @PSTRINGC7_684.@SCRATCH3
+025     lcd_putc.c
+025     lcd_gotoxy.@SCRATCH1
+025     @PSTRINGC7_684.@SCRATCH4
+026     @delay_ms1.P1
+026     lcd_send_byte.address
+027     lcd_send_byte.n
+028     lcd_send_byte.@SCRATCH1
+029     lcd_send_nibble.nibble
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  @const689.call
+000013  @const694.call
+00001A  @delay_ms1
+00002E  lcd_send_nibble
+00005A  lcd_send_byte
+000081  lcd_init
+0000B0  lcd_gotoxy
+0000C2  lcd_putc
+0000E1  @PSTRINGC7_684
+000137  MAIN
+000137  @cinit1
+000143  @cinit2
+
+Project Directory:
+    D:\TestProject\TestLCD\
+
+Project Files:
+    TestLCD.c                                               [05-Apr-21 23:35  CRC=D8102B21]
+    TestLCD.h                                               [05-Apr-21 23:36  CRC=D872A938]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [20-Dec-19 15:23  CRC=F9E03FEF]
+    LCD16x2.c                                               [04-Apr-21 15:55  CRC=AEBF23AA]
+
+Source signature=07E15B9C
+Program memory checksum=0000
+Hex file CRC=6012
+
+Units:
+    D:\TestProject\TestLCD\TestLCD (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   TestLCD.xsym
+    Errors:      TestLCD.err
+    Ext Symbols: TestLCD.esym
+    INHX8:       TestLCD.hex
+    Symbols:     TestLCD.sym
+    List:        TestLCD.lst
+    Debug/COFF:  TestLCD.cof
+    Project:     TestLCD.ccspjt
+    Call Tree:   TestLCD.tre
+    Statistics:  TestLCD.STA

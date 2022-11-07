@@ -1,0 +1,106 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+008     lcd
+008     lcdlat
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-02B A
+02C     i
+02D-02E @sprintf_string
+02F     @TRIS_C
+030     quet_phim.@SCRATCH1
+030     @PSTRINGC7_696.@SCRATCH1
+030     MAIN.@SCRATCH1
+031     quet_phim.@SCRATCH2
+031     @PSTRINGC7_696.@SCRATCH2
+032     @PSTRINGC7_696.@SCRATCH3
+033     lcd_putc.c
+033     @PSTRINGC7_696.@SCRATCH4
+034     @delay_ms1.P1
+034     lcd_gotoxy.x
+035     lcd_gotoxy.y
+036     lcd_gotoxy.address
+037     lcd_gotoxy.@SCRATCH1
+038     lcd_send_byte.address
+039     lcd_send_byte.n
+03A     lcd_read_byte.low
+03A     lcd_send_byte.@SCRATCH1
+03B     lcd_read_byte.high
+03B     lcd_send_nibble.n
+03C     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const711.call
+000005  @const716.call
+000006  @const717.call
+000007  @const718.call
+000008  @const719.call
+000009  @const720.call
+00000A  @const721.call
+00000B  @const722.call
+00000C  @const723.call
+00000D  @const724.call
+00000E  @delay_ms1
+000022  lcd_read_nibble
+000028  lcd_send_nibble
+000037  lcd_send_byte
+00003D  lcd_read_byte
+000079  lcd_gotoxy
+00008B  lcd_putc
+0000B7  @PSTRINGC7_696
+00010D  quet_phim
+00029B  MAIN
+00029B  @cinit1
+0002AA  @cinit2
+
+Project Directory:
+    D:\TestProject\TestKEYPAD\
+
+Project Files:
+    TestKEYPAD.c                                            [05-Apr-21 16:40  CRC=067428AD]
+    TestKEYPAD.h                                            [05-Apr-21 16:17  CRC=00000000]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [20-Dec-19 15:23  CRC=F9E03FEF]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [22-Feb-16 09:05  CRC=D1A6378A]
+
+Source signature=A3A0D7B0
+Program memory checksum=0000
+Hex file CRC=A242
+
+Units:
+    D:\TestProject\TestKEYPAD\TestKEYPAD (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   TestKEYPAD.xsym
+    Errors:      TestKEYPAD.err
+    Ext Symbols: TestKEYPAD.esym
+    INHX8:       TestKEYPAD.hex
+    Symbols:     TestKEYPAD.sym
+    List:        TestKEYPAD.lst
+    Debug/COFF:  TestKEYPAD.cof
+    Project:     TestKEYPAD.ccspjt
+    Call Tree:   TestKEYPAD.tre
+    Statistics:  TestKEYPAD.STA

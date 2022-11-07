@@ -1,0 +1,19 @@
+#include <TestLCD.h>
+#include <LCD16x2.c>
+
+
+
+void main()
+{
+   lcd_init ();
+   lcd_gotoxy(1,1);
+   set_tris_d(0x00);
+   printf(lcd_putc,"Hello World");
+   while(TRUE)
+   {
+      
+
+      //TODO: User Code
+   }
+
+}
